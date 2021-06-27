@@ -28,7 +28,8 @@ function darkFunction() {
         document.getElementById("to-dark").classList.add('btn-dark');
     }
 
-    $('.btn').click(function() {
-        $(this).toggleClass('btn-primary').toggleClass('btn-success');
-    });
+    // save cookie
+    document.cookie = "dark="+countClick+";";
+
+
   }

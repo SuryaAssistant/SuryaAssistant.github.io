@@ -35,6 +35,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
+# Customize Bootstrap
+--------------------------------------------------------------*/
+.dark-mode .btn-outline-primary {
+  background-color: #303f9f;
+  border-color: #303f9f;
+  color: #ffffff;
+}
+
+.dark-mode .btn-outline-primary:hover {
+  background-color: #3a4bbb;
+  border-color: #303f9f;
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
 .back-to-top {
@@ -344,10 +359,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dark-mode #hero h1 {
-  margin: 0;
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 56px;
   color: #f2f3f5;
   transition: 0.5s;
 }
@@ -517,6 +528,8 @@ section {
 .dark-mode .button ul i {
   color: #303f9f;
 }
+
+
 /*--------------------------------------------------------------
 # Facts
 --------------------------------------------------------------*/
