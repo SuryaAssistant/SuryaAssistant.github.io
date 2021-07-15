@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fandi Adinata Blog</title>
+  <meta content="Konsep dasar pengiriman file di internet dan dengan menggunakan CoAP MQTT IoT" name="description">
+  <meta content="kirim file, internet, protokol, CoAP, MQTT, IoT," name="keywords">
+
+  <!-- Favicons -->
+  <link href="./img/favicon.png" rel="icon">
+  <link href="./img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="./assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="./assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="./assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="./assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+  <!-- NAVBAR -->
+    <nav class="navbar fixed-top bg-white">
+    <!-- Logo and Dark Mode-->
+        <div class="container">
+        <a class="navbar-brand" href="https://suryaassistant.github.io" style="color: primary;"><h2>Fandi Adinata</h2></a>
+        <a class="nav-menu" href="#"><h2><i class='bx bxs-moon' style="color:#121212;"></i></h2></a>
+        </div>
+
+    <!-- nav-menu-->
+        <div class="container border-bottom" style="padding-top:10px">
+        <ul style="padding-left:0px;">
+        <a class="nav-item" href="https://suryaassistant.github.io" style="text-decoration:initial; color: #121212;">Home</a>
+        <a class="nav-item" href="https://suryaassistant.github.io/blog"style="text-decoration:initial; color: #121212; padding-left:50px;">Blog</a>
+        </ul>
+        </div>
+
+    </nav>
+
+
+  <!-- End of NAVBAR-->
+
+  </header>
+
+
+  <main id="main">
+
+    <!-- ======= POSTINGAN Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <!-- Judul Postingan -->
+
+          <h2>Teknik Pengiriman File menggunakan protokol IoT 
+          Part 1: Konsep Dasar Pengiriman File</h2>
+
+          <!-- Keterangan Postingan -->
+
+          <p class="fst-italic">
+            Konsep dasar pengiriman file di internet dan dengan menggunakan CoAP
+              </br>
+              </br>
+          </p>
+
+          <!-- Penulis dan Tanggal Terbit Postingan -->
+
+          <p align="left" style="font-size:12px">Ditulis oleh : Fandi Adinata</p>
+          <p align="left" style="font-size:12px">pada 08 Juli 2021 19:54 WIB</p>
+
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+
+          <!-- Keterangan Tambahan -->
+
+            <p class="fst-italic">
+            <!--
+            Sebelum membaca tulisan berikut, penulis menganggap bahwa pembaca setidaknya sudah mengetahui konsep bilangan biner dan penggunaannya di komputer.
+            </br>
+            </br>
+            </br>
+            -->
+            </p>
+
+          <!-- Isi Postingan -->
+
+            <h3>Pendahuluan</h3>
+
+            <p>
+            Contrained Application Protocol atau CoAP merupakan sebuah protokol komunikasi yang mirip dengan 
+            protokol komunikasi HTTP, hanya saja CoAP lebih dikhususkan untuk perangkat IoT yang didesain untuk menghemat resource.
+            </p>
+
+            <p>
+            Jika kita mencari tutorial CoAP di internet, kemungkinan besar kita akan mendapatkan tutorial mengirimkan angka, kalimat, ataupun hal-hal lain yang intinya adalah mencoba mengirim "teks" atau "string" melalui CoAP.
+            Padahal yang ingin kita dapatkan adalah lebih dari itu, seperti mengirim file atau bahkan videostream melalui protokol yang memang dikhususkan untuk dunia IoT, seperti MQTT dan CoAP.
+            </p>
+
+            <p>
+            Jika diperhatikan, pengiriman file sebagian besar dilakukan di atas protokol HTTP maupun HTTPS.
+            Sedangkan protokol "IoT" seperti MQTT maupun CoAP hanya digunakan untuk mengirimkan "teks".
+            Masih sangat jarang orang yang membagikan cara pengiriman file melalui protokol IoT seperti MQTT maupun CoAP.
+            </p>
+
+            <p>
+            Maka, di sini saya akan membagikan hasil pemikiran saya. Anda boleh memakai ini untuk keperluan Anda secara bebas.
+            Dalam pembahasan ini, saya menggunakan prinsip "pakai yang sudah ada dan simpel".
+            </p>
+
+            <h3>Dasar Teori</h3>
+
+            <p>
+            Ada dua pondasi utama dalam pembuatan teknik ini, yaitu (1) <Strong>File dapat dikonversi ke bentuk yang lain</Strong> dan (2) <Strong>tutorial CoAP yang sudah ada di internet</Strong>.
+
+            <p>
+            Pada dasarnya, semua pemindahan data informasi dari satu perangkat ke perangkat lain dilakukan dengan menggunakan bentuk biner (0 dan 1). 
+            Setelah menjadi bentuk biner, data informasi ini kemudian dikirimkan dalam bentuk sinyal listrik maupun gelombang elektromagnetik.
+            Ini merupakan hal dasar dalam dunia elektro, komputer, hingga telekomunikasi.
+            Namun walaupun dasar, hal ini justru jarang diingat oleh orang yang bergulat di dunia tersebut.
+            </p>
+
+            <p>
+            Dengan membaca paragraf sebelumnya, dapat kita tarik kesimpulan bahwa <Strong> semua file digital (dengan ekstensi atau format apapun) dapat diubah ke bentuk digital yang lain </Strong> (contohnya adalah bentuk biner).
+            Hal ini lah yang kemudian yang saya jadikan sebagai pondasi dalam teknik pengiriman file melalui CoAP yang saya kerjakan.
+            </p>
+
+            <p>
+            Apabila kita melihat tutorial-tutorial MQTT maupun CoAP di internet, kita akan belajar mengenai pengiriman "teks" atau "string" melalui protokol MQTT maupun CoAP. 
+            Tutorial ini dapat kita temukan dengan mudah di google maupun youtube. Saya pun juga belajar dasar penggunaan CoAP dari sini.
+            Dan banyak yang sudah berhasil mempraktikkan cara pengiriman teks melalui CoAP maupun MQTT. Maka dapat saya katakan "tingkat kesuksesan pengiriman teks melalui CoAP maupun MQTT adalah tinggi".
+            </p>
+
+            <p>
+            Tutorial "pengiriman teks" memang sudah ada banyak di internet. Lantas hal ini juga saya gunakan sebagai pondasi dari teknik ini. 
+            <Strong>Sebagian besar pengiriman "teks" melalui CoAP dan MQTT tingkat keberhasilannya tinggi</Strong>.
+            </p>
+
+            <p>
+            Dengan memperhatikan dua pondasi utama sebelumnya, maka dapat kita nyatakan bahwa <Strong>File yang dikonversi ke bentuk teks dapat dikirimkan melalui CoAP dengan tingkat keberhasilan yang tinggi</Strong>. 
+            Untuk lebih jelasnya, Anda dapat mengamati gambar di bawah.
+            </p>
+
+            <img src="./img/kirim_gambar_coap.png" align="center">
+            <p style="font-size:12px" align="center">
+            </br>
+            Skema pengiriman file gambar melalui CoAP dari Client ke Server
+            </p>
+
+          </div>
+
+          <div class="col-lg-4 pt-4 pt-lg-0 content">
+          <p>Sidebar di sini</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="mailto:09.fandisurya@gmail.com" class="email"><i class="bx bx-envelope"></i></a>
+        <a href="https://github.com/suryaassistant" class="github"><i class="bx bxl-github"></i></a>
+        <a href="https://instagram.com/fandiadinata72" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://linkedin.com/in/fandiadinata/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+      <div class="copyright">
+        &copy; Copyright <strong><span>MyResume</span></strong>. All Rights Reserved
+      </div>
+
+
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: [license-url] -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/ -->
+        Original design by <a href="https://bootstrapmade.com/">BootstrapMade</a>. Edited by <a href="https://suryaassistant.github.io">Fandi Adinata</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="./assets/vendor/aos/aos.js"></script>
+  <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="./assets/js/dark-mode.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="./assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
