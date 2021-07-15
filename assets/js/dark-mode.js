@@ -8,7 +8,7 @@ function darkFunction() {
 
 
     if (countClick == 0){
-        document.getElementById("to-dark").innerHTML = 'Dark Mode';
+        document.getElementById("to-dark").innerHTML = 'Try Dark Mode';
 
         document.getElementById("to-dark").classList.remove('btn-light');
         document.getElementById("to-dark").classList.add('btn-dark');
@@ -22,7 +22,7 @@ function darkFunction() {
     if (countClick == 2){
         countClick = 0;
 
-        document.getElementById("to-dark").innerHTML = 'Dark Mode';
+        document.getElementById("to-dark").innerHTML = 'Try Dark Mode';
 
         document.getElementById("to-dark").classList.remove('btn-light');
         document.getElementById("to-dark").classList.add('btn-dark');
