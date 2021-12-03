@@ -1,0 +1,160 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #272829;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+.navbackground{
+  background-color : #ffffff;
+}
+
+.primecolor
+{
+  color : #0563BB;
+}
+
+.primebackground
+{
+  background-color:#0563BB;
+}
+
+
+.darkMode {
+  background-color: #121212;
+  color: white;
+}
+
+.darkMode .navbackground{
+  background-color:#121212;
+}
+
+.darkMode .primecolor
+{
+  color : #303F9F;
+}
+
+.darkMode .primebackground
+{
+  background-color:#303F9F;
+}
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9997;
+    transition: all 0.5s;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  @media (max-width: 992px) {
+    #header {
+      width: 300px;
+      background: #fff;
+      border-right: 1px solid #e6e9ec;
+      left: -300px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #main {
+      margin-left: 0px;
+    }
+  }
+  
+
+
+/*--------------------------------------------------------------
+# Section
+--------------------------------------------------------------*/
+
+section {
+  padding-top: 60px;
+  width:100%;
+  background-color: #ffffff;
+}
+
+.darkMode section {
+  padding-top: 60px;
+  width:100%;
+  background-color: #121212;
+}
+
+
+.social-links a {
+  padding-top:10px;
+  padding-bottom:20px;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  margin-right: 20px;
+}
+
+
+.section-title {
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #45505b;
+}
+
+.darkMode .section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #DDDDDD;
+}
+
+.section-isi {
+  padding-left: 0px;
+}
+
+.section-isi h3 {
+  font-weight: bold;
+  color: #45505b;
+}
+
+.darkMode .section-isi h3 {
+  font-weight: bold;
+  color: #DDDDDD;
+}
+
+/*--------------------------------------------------------------
+# Skills
+--------------------------------------------------------------*/
+
+.skillbar {
+  width: 100%; /* Full width */
+  background-color: #ddd; /* Grey background */
+  margin-bottom: 40px;
+}
+
+
+.skillarea p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size:14px;
+  text-transform: uppercase;
+  display: block;
+}
+
