@@ -21,9 +21,13 @@ h1, h2, h3, h4, h5, h6 {
   background-color:#0563BB;
 }
 
+.dark-toggle-icon
+{
+  color:#121212;
+}
 
 .darkMode {
-  background-color: #121212;
+  background-color: #141414;
   color: white;
 }
 
@@ -39,6 +43,11 @@ h1, h2, h3, h4, h5, h6 {
 .darkMode .primebackground
 {
   background-color:#303F9F;
+}
+
+.darkMode .dark-toggle-icon
+{
+  color:#ffffff;
 }
 
 
@@ -86,7 +95,7 @@ section {
 .darkMode section {
   padding-top: 60px;
   width:100%;
-  background-color: #121212;
+  background-color: #141414;
 }
 
 
@@ -158,3 +167,31 @@ section {
   display: block;
 }
 
+/*--------------------------------------------------------------
+# Bootstrao Edit
+--------------------------------------------------------------*/
+.card-body{
+  background-color: #ffffff;
+}
+
+.card-title{
+  color: #000000;
+}
+
+.card-text {
+  font-size : 12px;
+  color: #000000;
+}
+
+.darkMode .card-body{
+  background-color: #1e1e1e;
+}
+
+.darkMode .card-title{
+  color: #ffffff;
+}
+
+.darkMode .card-text {
+  font-size : 12px;
+  color: #ffffff;
+}
