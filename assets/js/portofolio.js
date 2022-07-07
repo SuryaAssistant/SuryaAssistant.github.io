@@ -1,5 +1,13 @@
 portofolio_data = [
     {
+        "title" : "arduinofuzzy",
+        "description" : "Implementation of Fuzzy Logic Control Algorithm written in Arduino ",
+        "img" : "https://raw.githubusercontent.com/SuryaAssistant/arduinofuzzy/main/img/fuzzy_output_graphic.png",
+        "website" : "",
+        "github" : "https://github.com/SuryaAssistant/arduinofuzzy",
+        "file" : "",
+    },
+    {
         "title" : "SIAB Recycle Front-End Demo",
         "description" : "Front-End Demo of SIAB Recycle to display water quality and filtration process of the SIAB Recycle Hardware.",
         "img" : "./assets/img/portofolio/siabrecycle.png",
@@ -64,19 +72,19 @@ for(let i = 1; i <= jLenght; i++)
     if(portofolio_data[i-1].website != "")
     {
         document.getElementById(pIdName).innerHTML +=`
-            <a href="${portofolio_data[i-1].website}" class="website"><i class="bx bx-globe primecolor"></i></a>
+            <a href="${portofolio_data[i-1].website}" class="website" target=”_blank”><i class="bx bx-globe primecolor"></i></a>
         `;
     }
     if(portofolio_data[i-1].github != "")
     {
         document.getElementById(pIdName).innerHTML +=`
-            <a href="${portofolio_data[i-1].github}" class="github"><i class="bx bxl-github primecolor"></i></a>
+            <a href="${portofolio_data[i-1].github}" class="github" target=”_blank”><i class="bx bxl-github primecolor"></i></a>
         `;
     }
     if(portofolio_data[i-1].file != "")
     {
         document.getElementById(pIdName).innerHTML +=`
-            <a href="${portofolio_data[i-1].file}" class="files"><i class='bx bxs-file-pdf primecolor'></i></a>
+            <a href="${portofolio_data[i-1].file}" class="files" target=”_blank”><i class='bx bxs-file-pdf primecolor'></i></a>
         `;
     }
 };
