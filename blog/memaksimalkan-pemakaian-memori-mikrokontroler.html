@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fandi Adinata - Memaksimalkan pemakaian memori mikrokontroler</title>
+  <meta content="Memaksimalkan pemakaian memori mikrokontroler" name="description">
+  <meta content="arduino, sram, flash, memory" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="./assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="./assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="./assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="./assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<style>
+pre {
+  white-space: nowrap;
+  counter-reset: line;
+  background: #2f2f2f;
+  padding: 15px;
+  color: #ffffff;
+  font-size:14px;
+}
+
+code{
+  font-family: 'Courier New', monospace;
+  color: #000000;
+  font-size:16px;
+}
+</style>
+
+<body>
+
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+  <!-- NAVBAR -->
+    <nav class="navbar fixed-top bg-white">
+    <!-- Logo and Dark Mode-->
+        <div class="container">
+        <a class="navbar-brand" href="https://suryaassistant.github.io" style="color: primary; font-size: 20px;font-family: 'Open Sans', sans-serif;"><Strong>Fandi Adinata</Strong></a>
+        <!--<a class="nav-menu" href="#"><h2><i class='bx bxs-moon' style="color:#121212;"></i></h2></a>-->
+        </div>
+
+    <!-- nav-menu-->
+        <div class="container border-bottom" style="padding-top:10px">
+        <ul style="padding-left:0px;">
+        <a class="nav-item" href="https://suryaassistant.github.io" style="text-decoration:initial; color: #121212;">Home</a>
+        <a class="nav-item" href="./index.html"style="text-decoration:initial; color: #121212; padding-left:50px;">Blog</a>
+        </ul>
+        </div>
+
+    </nav>
+
+
+  <!-- End of NAVBAR-->
+
+  </header>
+
+
+  <main id="main">
+
+    <!-- ======= POSTINGAN Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <!-- Judul Postingan -->
+
+          <h2>Memaksimalkan pemakaian memori mikrokontroler</h2>
+
+          <!-- Keterangan Postingan -->
+
+          <p class="fst-italic">
+              </br>
+          </p>
+
+          <!-- Penulis dan Tanggal Terbit Postingan -->
+
+          <p align="left" style="font-size:12px" class="fst-italic">Ditulis oleh : Fandi Adinata</p>
+          <p align="left" style="font-size:12px" class="fst-italic">pada 29 Agustus 2022 19:44 WIB</p>
+
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+
+          <!-- Keterangan Tambahan -->
+
+          <!-- Isi Postingan -->
+
+            <p>
+            Tidak bisa dipungkiri, hal pertama yang ingin dicapai ketika mengetikan program suatu adalah 
+            program tersebut dapat berjalan seperti apa yang kita inginkan. 
+            Tidak mungkin tidak. Selama program kita dapat berjalan sesuai yang kita inginkan, maka itu sudah cukup. 
+            Namun tidak selamanya ketika menulis program, program tersebut dapat langsung jalan dengan benar. 
+            Dalam beberapa keadaan, seringkali ditemui permasalahan yang menyebabkan program gagal berjalan ataupun berjalan namun dengan tidak benar.
+            Salah satunya adalah karena masalah memori.
+            </p>
+
+            <p>
+            Salah satu mikrokontroler yang sering dipakai adalah Arduino pro mini. 
+            Board ini sebenarnya hampir sama saja dengan Arduino Uno dan Arduino Nano hanya saja ukurannya lebih kecil. 
+            </p>
+
+            <div class="col" style="text-align:center">
+              <img src="https://cdn.sparkfun.com//assets/parts/6/5/3/9/11113-01b.jpg" style="max-width:300px;">
+            </div>
+
+            <p style="font-size:12px" align="center">
+            </br>
+            Arduino Pro Mini. Sumber: Adafruit
+            </p>
+
+            <p>
+            Dengan <span class="fst-italic">flash</span> sebesar 32kB dan SRAM 2kB, ibarat komputer hanya saja dengan <span class="fst-italic">hardisk</span> 32kB dan RAM 2kB tanpa SSD, 
+            tetapi itu sudah cukup untuk berbagai otomasi ringan. 
+            Namun di sini, saya menggunakannya untuk yang lebih berat. 
+            Hingga sekarang, memori <span class="fst-italic">flash</span> yang terpakai sudah mencapai 89% dengan RAM terpakai 37% di saat <span class="fst-italic">compile</span>.
+            </p>
+
+            <p>
+            Dalam semua tulisan program itu, saya berikan salah satu bagian potongan program dimana keunikan terjadi.
+            <br>
+            </p>
+            
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/error.png" style="width:800px; height:auto; object-fit:contain; text-align:center">
+              </div>
+            </div>
+            <p style="font-size:12px" align="center">
+            </br>
+            Screenshot program untuk autentikasi pesan LoRa. Sumber: Penulis
+            </p>
+
+            <br>
+
+            <p>Sedangkan versi simpelnya adalah seperti di bawah</p>
+
+            <pre>
+              <code>
+              String a = “test”;
+              <br>
+              String b = “test”;
+              <br>
+              <br>
+              if(a == b){
+                <br>
+                  &#160Serial.println(“OK”);
+                <br>
+              }
+              </code>
+            </pre>
+
+            <p>
+            Dalam kondisi normal, pastinya <span class="fst-italic">serial monitor</span> Arduino akan menampilkan “OK”. Pasti. 
+            Tapi uniknya, tulisan “OK” tidak pernah muncul di <span class="fst-italic">serial monitor</span> saya. 
+            Aneh tapi nyata. 
+            Dalam <span class="fst-italic">screenshot</span> di atas, apabila sebelum <code>authentication</code> diberi <span class="fst-italic">serialprint</span>, 
+            maka ketiga parameter telah bernilai true. 
+            Hanya saja, program di dalam <code>if</code> tidak tereksekusi. 
+            Program kemudian terus berulang hingga timeout.
+            </p>
+
+            <p>
+            Penyebab yang mungkin adalah karena pemakaian memori yang tidak rapi. 
+            Memori mikrokontroler tidak kuat menjalankan program keseluruhan, sehingga beberapa bagian tidak dijalankan oleh mikrokontroler.  
+            Selain itu, masalah memori juga dapat menyebabkan berbagai masalah lain seperti <span class="fst-italic">stuck</span> di tengah jalan atau bahkan <span class="fst-italic">auto-restart<span>.
+            </p>
+
+            <p>
+            Beberapa cara berikut dapat dilakukan untuk menghindari pemasalahan dengan memori ataupun hanya untuk menjadikan kode progam lebih efisien. 
+            <br>
+
+            <h5><Strong>1. Kurangi <span class="fst-italic">global variable</span> dan pindahkan ke <span class="fst-italic">local<span></Strong></h5>
+
+            <br>
+
+            <pre>
+              <code>
+              String a = “test”;                      //global variable
+              <br>
+              <br>
+              void setup(){
+                <br>
+                &#160String b = "test2";              //local variable
+                <br>
+              }
+              <br>
+              <br>
+
+              void loop(){
+                <br>
+                &#160String c = "test3";              //local variable
+                <br>
+              }
+              </code>
+            </pre>
+
+            <p>
+            Secara mudahnya, <span class="fst-italic">global variable</span> adalah variabel yang dideklarasikan sebelum void setup(). 
+            Sedangkan <span class="fst-italic">local variable</span> adalah variabel yang dideklarasikan di dalam fungsi, seperti void. 
+            </p>
+            <p>
+            Ketika mendeklarasikan variabel di <span class="fst-italic">global</span>, variabel dapat digunakan di berbagai fungsi di dalam program. 
+            Namun, tentu ada risikonya. 
+            Variabel disimpan di dalam RAM selama mikrokontroler diaktifkan, sehingga memori tersisa untuk komputasi lainnya menjadi berkurang. 
+            </p>
+            <p>
+            Apabila tidak terlalu mengharuskan memakai <span class="fst-italic">global</span>, maka deklarasi variabel dapat di lakukan di dalam fungsi. 
+            Dengan ini, variabel hanya akan dipanggil ke RAM ketika memproses fungsi. 
+            Setelah fungsi selesai, variabel dihapus dari RAM untuk dipakai proses yang lain.
+            </p>
+
+            <br>
+
+            <h5><Strong>2. Gunakan tipe data yang tepat</Strong></h5>
+            <br>
+
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Tipe Data</th>
+                  <th scope="col">Ukuran (bit)</th>
+                  <th scope="col">Rentang</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">boolean</th>
+                  <td>8</td>
+                  <td>0 atau 1</td>
+                </tr>
+                <tr>
+                  <th scope="row">char</th>
+                  <td>8</td>
+                  <td>-127 sampai 127</td>
+                </tr>
+                <tr>
+                  <th scope="row">unsigned char</th>
+                  <td>8</td>
+                  <td>0 sampai 255</td>
+                </tr>
+                <tr>
+                  <th scope="row">byte</th>
+                  <td>8</td>
+                  <td>0 (0x00) sampai 255 (0xFF)</td>
+                </tr>
+                <tr>
+                  <th scope="row">uint8_t</th>
+                  <td>8</td>
+                  <td>0 sampai 255</td>
+                </tr>
+                                <tr>
+                  <th scope="row">uint16_t</th>
+                  <td>16</td>
+                  <td>0 sampai 65535</td>
+                </tr>
+                                <tr>
+                  <th scope="row">int</th>
+                  <td>16</td>
+                  <td>-327768 sampai 327767</td>
+                </tr>
+                <tr>
+                  <th scope="row">long</th>
+                  <td>32</td>
+                  <td>-2147483648 sampai 2147483648</td>
+                </tr>
+                <tr>
+                  <th scope="row">unsigned long</th>
+                  <td>32</td>
+                  <td>0 sampai 4294967295</td>
+                </tr>
+                <tr>
+                  <th scope="row">float, double</th>
+                  <td>32</td>
+                  <td>1.175e-38 to 3.402e38</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+            <p>
+            Penggunaan tipe data yang tepat dapat membantu mengurangi pemakaian memori. 
+            Sebagai contoh, untuk <code>for loop</code> 100 kali, gunakan tipe data <code>uint8_t</code> dari pada menggunakan <code>int</code>. 
+            Hal ini akan mengurangi 50% memori yang terpakai ketimbang menggunakan <code>int</code>.
+            </p>
+
+            <pre>
+              <code>
+                for(<Strong>uint8_t</Strong> i=0; i<100; i++){
+                <br>
+                  &#160// do something
+                <br>
+                }
+              </code>
+            </pre>
+
+            <br>
+            <h5><Strong>3. Kurangi penggunaan <span class="fst-italic">array</span> yang tidak perlu</Strong></h5>
+            <br>
+
+            <p>
+            Pemakaian array yang tidak tepat dapat mengakibatkan program memakan banyak memori. 
+            Apabila tetap harus menggunakan array, gunakan tipe data yang paling kecil untuk memuat nilai array.
+            </p>
+
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/bytearray.png" style="width:400px; height:auto; object-fit:contain; text-align:center">
+              </div>
+            </div>
+            <p style="font-size:12px" align="center">
+            </br>
+            Pemakaian byte untuk menampung nilai array. Sumber: Penulis
+            </p>
+            <br>
+
+            <h5><Strong>4. Dalam operasi penambahan String, gunakan "+="</Strong></h5>
+            <br>
+
+            <p>
+            Penambahan String secara sebaris dapat memakan banyak memori akibat munculnya String sementara.
+            </p>
+
+            <pre>
+              <code>
+              String a = "abc";
+              <br>
+              String b = "def";
+              <br>
+              String c = "ghj";
+              <br>
+              <br>
+              String d = a + b + c;
+              </code>
+            </pre>
+
+            <p>
+            Berdasarkan kode di atas, sistem program akan mendeklarasikan variabel <code>a</code>, <code>b</code>, <code>c</code>, dan <code>d</code>. 
+            Namun tidak hanya itu, sistem program juga akan mendeklarasikan variabel sementara untuk menampung hasil penjumlahan String <code>a</code>, <code>b</code>, dan <code>c</code> sebelum nilainya dimasukan ke String <code>d</code>.
+            </p>
+
+            <pre>
+              <code>
+              String a = "abc";
+              <br>
+              String b = "def";
+              <br>
+              String c = "ghj";
+              <br>
+              <br>
+              String d += a;
+              <br>
+              d += b;
+              <br>
+              d += c;
+              </code>
+            </pre>
+
+            <p>
+            Berbeda dengan sebelumnya, pengunaan “+=” akan menghemat memori karena tidak ada pendeklarasian variabel sementara. 
+            Nilai variabel akan langsung ditambahkan ke akhir variabel <code>d</code> tanpa melalui variabel sementara.
+            </p>
+            <br>
+
+            <h5><Strong>5. Gunakan "&" di parameter fungsi</Strong></h5>
+            <br>
+            <pre>
+              <code>
+              String input = "input_text";
+              <br>
+              <br>
+              void setup(){
+              <br>
+              &#160fungsiTest(input);
+              <br>
+              }
+              <br>
+              <br>
+              void loop(){
+              <br>
+              }
+              <br>
+              <br>
+              void fungsiTest(String var1){
+              <br>
+              &#160var1 = "change_text";
+              <br>
+              }
+              </code>
+            </pre>
+
+            <p>
+            Apa yang terjadi dalam program di atas adalah variabel <code>input</code> disalin ke memori dan kemudian <code>fungsiTest</code> membuat variabel baru bernama <code>var1</code>. 
+            Variabel <code>var1</code> kemudian menyimpan nilai awal <code>input</code> sebelum kemudian program di dalam fungsi <code>fungsiTest</code> dijalankan. 
+            Dapat dikatakan, variabel yang digunakan di dalam fungsi adalah hasil duplikasi variabel yang diinputkan ke parameter.
+            </p>
+
+            <p>
+            Apabila memakai "&",
+            </p>
+
+            <pre>
+              <code>
+              void fungsiTest(String &var1){
+              <br>
+              &#160var1 = "change_text";
+              <br>
+              }
+              </code>
+            </pre>
+
+            <p>
+            Maka yang terjadi adalah program memakai alamat variabel <code>input</code> untuk digunakan sebagai alamat variabel <code>var1</code>. 
+            Dengan teknik ini, parameter tidak diduplikasi melainkan memakai variabel yang sama dengan variabel yang diinputkan ke parameter.
+            </p>
+            <br>
+
+            <h5><Strong>6. Gunakan F() macro untuk "printing" String</Strong></h5>
+            <br>
+
+            <p>
+            Suatu string tanpa pendeklarasian variabel sebelumnya akan disimpan di RAM. 
+            Termasuk apabila memakai String di <span class="fst-italic">serialprint</span>. 
+            </p>
+
+            <p>
+            F() macro difungsikan untuk menyimpan String <span class="fst-italic">serialprint</span> ke memori <span class="fst-italic">flash</span> dan akan dipanggil ketika melakukan "printing”. 
+            Dengan ini akan menghemat alokasi RAM dengan mengalihkannya ke memori <span class="fst-italic">flash</span>.
+            </p>
+
+            <pre>
+              <code>
+              Serial.print("Text here");     // Tanpa F() macro
+              <br>
+              Serial.print(F("Text here"));   // Dengan F() macro
+              </code>
+            </pre>
+
+            <br>
+            <p>
+            Semakin kompleks program yang Anda buat, semakin banyak aspek yang perlu diperhatikan. Manajemen memori menjadi penting mengingat kapasitas memori mikrokontroler yang terbatas.
+            </p>
+
+
+            <br>
+            <br>
+            <br>
+            <p>
+            <Strong>Beberapa referensi lain</Strong>
+            <br>
+            <br>
+            Bagaimana memori Arduino bekerja :
+            <br>
+            <span class="fst-italic"><a href="https://learn.adafruit.com/memories-of-an-arduino" target="_blank">https://learn.adafruit.com/memories-of-an-arduino</a></span>
+            <br>
+            <br>
+            Bagaimana String diproses dan permasalahan String di Arduino :
+            <br>
+            <span class="fst-italic"><a href="https://hackingmajenkoblog.wordpress.com/2016/02/04/the-evils-of-arduino-strings/" target="_blank">https://hackingmajenkoblog.wordpress.com/2016/02/04/the-evils-of-arduino-strings/</a></span>
+            <br>
+            <br>
+            Bagaimana mengontrol pemakaian String untuk mengontrol penggunaan memori :
+            <br>
+            <span class="fst-italic"><a href="https://www.instructables.com/Taming-Arduino-Strings-How-to-Avoid-Memory-Issues/" target="_blank">https://www.instructables.com/Taming-Arduino-Strings-How-to-Avoid-Memory-Issues/</a></span>
+            
+            </p>
+
+          </div>
+
+          <div class="col-lg-4 pt-4 pt-lg-0 content">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="mailto:09.fandisurya@gmail.com" class="email"><i class="bx bx-envelope"></i></a>
+        <a href="https://github.com/suryaassistant" class="github"><i class="bx bxl-github"></i></a>
+        <a href="https://instagram.com/fandiadinata72" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://linkedin.com/in/fandiadinata/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+      <div class="credits">
+        Original design by <a href="https://bootstrapmade.com/">BootstrapMade</a>. Edited by <a href="https://suryaassistant.github.io">Fandi Adinata</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="./assets/vendor/aos/aos.js"></script>
+  <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="./assets/js/dark-mode.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="./assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
