@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fandi Adinata - Kalkulasi Lebar Trace</title>
+  <meta content="Kalkulasi perhitungan lebar jalur trace pcb" name="description">
+  <meta content="trace, pcb, calculation" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="./assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="./assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="./assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="./assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<style>
+pre {
+  white-space: nowrap;
+  counter-reset: line;
+  background: #2f2f2f;
+  padding: 15px;
+  color: #ffffff;
+  font-size:14px;
+}
+
+code{
+  font-family: 'Courier New', monospace;
+  color: #000000;
+  font-size:16px;
+}
+</style>
+
+<body>
+
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+  <!-- NAVBAR -->
+    <nav class="navbar fixed-top bg-white">
+    <!-- Logo and Dark Mode-->
+        <div class="container">
+        <a class="navbar-brand" href="https://suryaassistant.github.io" style="color: primary; font-size: 20px;font-family: 'Open Sans', sans-serif;"><Strong>Fandi Adinata</Strong></a>
+        <!--<a class="nav-menu" href="#"><h2><i class='bx bxs-moon' style="color:#121212;"></i></h2></a>-->
+        </div>
+
+    <!-- nav-menu-->
+        <div class="container border-bottom" style="padding-top:10px">
+        <ul style="padding-left:0px;">
+        <a class="nav-item" href="https://suryaassistant.github.io" style="text-decoration:initial; color: #121212;">Home</a>
+        <a class="nav-item" href="./index.html"style="text-decoration:initial; color: #121212; padding-left:50px;">Blog</a>
+        </ul>
+        </div>
+
+    </nav>
+
+
+  <!-- End of NAVBAR-->
+
+  </header>
+
+
+  <main id="main">
+
+    <!-- ======= POSTINGAN Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <!-- Judul Postingan -->
+
+          <h2>Kalkulasi Lebar Jalur PCB</h2>
+
+          <!-- Keterangan Postingan -->
+
+          <p class="fst-italic">
+              </br>
+          </p>
+
+          <!-- Penulis dan Tanggal Terbit Postingan -->
+
+          <p align="left" style="font-size:12px" class="fst-italic">Ditulis oleh : Fandi Adinata</p>
+          <p align="left" style="font-size:12px" class="fst-italic">pada 14 September 2022 22:56 WIB</p>
+
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+
+          <!-- Keterangan Tambahan -->
+
+          <!-- Isi Postingan -->
+
+            <p>
+            <span class="fst-italic">Printed ciruit board</span> atau lebih sering disingkat sebagai PCB adalah sebuah media berupa papan yang digunakan untuk menghubungkan antar 
+            komponen elektronik melalui jalur konduktor yang diletakan di atasnya. 
+            Jalur konduktor ini biasanya berupa lapisan tembaga dan sering disebut sebagai <span class="fst-italic">trace</span>.
+            </p>
+
+            <p>
+            Ketika mengamati PCB-PCB pabrikan, seringkali terdapat beberapa jalur yang memiliki ukuran lebar berbeda dari yang lain. 
+            Perbedaan ukuran ini bukan tanpa sebab. 
+            Lebar <span class="fst-italic">trace</span> sangat berpengaruh terhadap kemampuan jalur PCB untuk menghantarkan arus listrik.
+            Ukuran <span class="fst-italic">trace</span> yang terlalu kecil dari spesifikasi dapat menyebabkan panas berlebih 
+            atau bahkan terbakar hingga menyebabkan jalur terputus. 
+            Sedangkan apabila lebar <span class="fst-italic">trace</space> terlalu besar, maka dapat memakan banyak tempat di PCB.
+            </p>
+
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="https://www.autodesk.com/products/fusion-360/blog/wp-content/uploads/2021/10/word-image-1-5.jpg" style="width:800px; height:auto; object-fit:contain; text-align:center">
+              </div>
+            </div>
+
+            <p style="font-size:12px" align="center">
+            </br>
+            PCB. Sumber: Autodesk
+            </p>
+
+
+            <p>
+            Penentuan ukuran lebar jalur (<span class="fst-italic">trace width</span>) bervariasi tergantung beberapa faktor seperti arus maksimum, suhu maksimum, hingga impedansi jalur yang diinginkan. 
+            </p>
+
+            <p>
+            Sebelum masuk ke perhitungan, terdapat beberapa kosakata yang perlu diketahui, antara lain:
+            </p>
+
+            <h5><Strong><span class="fst-italic">Trace Width</span></Strong></h5>
+            <p>
+            <span class="fst-italic">Trace width</span> atau lebar jalur adalah lebar dari jalur pcb yang dibuat. 
+            Satuan yang digunakan biasanya adalah mili inchi atau lebih sering disingkat menjadi “mil”.
+            Satu mil setara dengan 0.0254 mm.
+            </p>
+
+            <h5><Strong><span class="fst-italic">Copper Thickness</span></Strong></h5>
+            <p>
+            <span class="fst-italic">Copper thickness</span>, adalah ketebalan lapisan tembaga yang dipakai di PCB. 
+            Biasanya tebal tembaga yang umum dipakai adalah 1 oz/ft^2 atau lebih dikenal dengan 1 oz. 
+            Ukuran selain 1 oz, seperti 2 oz, 3 oz, masih dapat difabrikasi namun tentunya 
+            dengan biaya produksi yang lebih tinggi. Sehingga jarang yang memakai ukuran di atas 1 oz. 
+            </p>
+
+            <h5><Strong><span class="fst-italic">Temperature Rise</span></Strong></h5>
+            <p>
+            Suhu kenaikan atau <span class="fst-italic">temperature rise</span> adalah suhu maksimum yang 
+            diizinkan ketika <span class="fst-italic">trace</span> dilewati arus maksimum. 
+            Sebagai contoh, ketika suhu kenaikan di-set di 20 derajat celcius dengan suhu disekitar (<span class="fst-italic">ambient</span>) adalah 30 derajat celcius, 
+            maka ketika dilewati arus maksimum, suhu jalur pcb akan menjadi 50 derajat celcius (30 + 20 C). 
+            </p>
+
+            <br>
+
+            <h4><Strong>Perhitungan</Strong></h4>
+            <p>
+            Berdasarkan IPC-2221A, perhitungan maksimum arus yang mampu dilewatkan oleh jalur PCB 
+            pada layer eksternal (utamanya pada <span class="fst-italic">double layer</span> dan <span class="fst-italic">single layer</span>) adalah sebagai berikut:
+            </p>
+
+
+            <p>
+            <span class="fst-italic"><Strong>Arus maksimum = (0.048 x Suhu kenaikan^0.44) x Luas area penampang tembaga ^ 0.725</Strong></span>
+            <br>
+            <br>
+            Dengan luas area penampang tembaga (A) adalah sebagai berikut:
+            <br>
+            <br>
+            <span class="fst-italic"><Strong>A = (Copper thickness (oz/ft^2) x Trace width (mil) x 1.378</Strong></span>
+            </p>
+
+            <p>
+            Sedangkan untuk mencari lebar jalur berdasarkan arus maksimum adalah sebagai berikut:
+            <br>
+            Cari terlebih dahulu luas area penampang tembaga
+            <br>
+            <br>
+            <span class="fst-italic"><Strong>A = (Arus maksimum / (0.048 x Suhu kenaikan^0.44)) ^ (1/0.725)</Strong></span>
+            <br>
+            <br>
+            Kemudian didapatkan lebar jalur sebagai berikut:
+            <br>
+            <br>
+            <span class="fst-italic"><Strong>Trace width = A / (Copper thickness x 1.378)</Strong></span>
+            </p>
+
+            <br>
+            <br>
+
+            <p>
+            Sebagai visualisasi, saya tambahkan grafik perbandingan antara lebar jalur PCB (<span class="fst-italic">trace width</span>) dengan 
+            arus maksimum yang dapat dilalui dengan suhu kenaikan di 10 dan 20 derajat celcius.
+            </p>
+
+            <br>
+
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/tracewidth.png" style="width:800px; height:auto; object-fit:contain; text-align:center">
+              </div>
+            </div>
+
+            <p style="font-size:12px" align="center">
+            </br>
+            Lebar jalur dengan maksimum arus yang dapat dilalui. Sumber: Penulis
+            </p>
+
+            <br>
+            
+
+            <br>
+            <br>
+            <br>
+            <p>
+            <Strong>Beberapa referensi kalkulator lebar jalur PCB</Strong>
+            <br>
+            <br>
+            Digi-Key
+            <br>
+            <span class="fst-italic"><a href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-pcb-trace-width" target="_blank">https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-pcb-trace-width</a></span>
+            <br>
+            Farnell
+            <br>
+            <span class="fst-italic"><a href="https://il.farnell.com/pcb-trace-width" target="_blank">https://il.farnell.com/pcb-trace-width</a></span>
+            </p>
+
+          </div>
+
+          <div class="col-lg-4 pt-4 pt-lg-0 content">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="mailto:09.fandisurya@gmail.com" class="email"><i class="bx bx-envelope"></i></a>
+        <a href="https://github.com/suryaassistant" class="github"><i class="bx bxl-github"></i></a>
+        <a href="https://instagram.com/fandiadinata72" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://linkedin.com/in/fandiadinata/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+      <div class="credits">
+        Original design by <a href="https://bootstrapmade.com/">BootstrapMade</a>. Edited by <a href="https://suryaassistant.github.io">Fandi Adinata</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="./assets/vendor/aos/aos.js"></script>
+  <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="./assets/js/dark-mode.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="./assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
