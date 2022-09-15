@@ -1,0 +1,1 @@
+var homepage = "https://fandiadinata.com";
