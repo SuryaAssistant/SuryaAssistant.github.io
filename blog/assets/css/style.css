@@ -27,6 +27,17 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
+hrblog{
+  display:block;
+  border: 0px;
+  height: 1px !important;
+  width: 100%;
+  color: #2b4645;
+  background-color: #2b4645 !important; 
+  opacity: 0.2 !important;
+  margin-bottom:10px;
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -279,3 +290,4 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
