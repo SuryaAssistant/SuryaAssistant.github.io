@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fandi Adinata - Pentingya Kalibrasi Pembacaan Rangkaian Voltage Divider</title>
+  <meta content="Pentingya Kalibrasi Pembacaan Rangkaian Voltage Divider" name="description">
+  <meta content="sensor, voltage divider, kalibrasi, error" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <header class="d-flex flex-column justify-content-center">
+
+  <!-- NAVBAR -->
+    <nav class="navbar fixed-top bg-white" id="navbar">
+    </nav>
+  <!-- End of NAVBAR-->
+
+  </header>
+
+
+    <!-- ======= POSTINGAN Section ======= -->
+    <section class="post">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content" id="isi-post">
+
+            <div class="section-title">
+              <!-- Judul Postingan -->
+              <h2>Pentingya Kalibrasi Pembacaan Rangkaian Voltage Divider</h2>
+              <br>
+              <!-- Penulis dan Tanggal Terbit Postingan -->
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                  <p align="left" style="font-size:12px" class="fst-italic">Ditulis oleh : Fandi Adinata</p>
+                  <p align="left" style="font-size:12px" class="fst-italic">pada 14 September 2022 22:56 WIB</p>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="row" id="share-button">
+              
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Isi Postingan -->
+            <div class="col" >
+                <div class="row">
+                <img src="./img/bg1.png" style="width:800px; height:auto; object-fit:contain; text-align:center; margin-left:auto; margin-right:auto">
+                </div>
+            </div>
+
+            <br>
+
+            <p>
+            <span class="fst-italic">Voltage divider</span> adalah sebuah rangkaian sederhana dengan fungsi untuk mengubah suatu 
+            nilai tegangan yang lebih besar menjadi nilai tegangan lain yang lebih kecil. 
+            Hanya terdiri dari dua buah resistor, <span class="fst-italic">voltage divider</span> memberikan kemudahan dalam perancangan dan pengaplikasiannya. 
+            Dan memang, <span class="fst-italic">voltage divider</span> biasanya dipakai tanpa memerlukan kalibrasi karena nilai keluarannya yang relatif akurat.
+            </p>
+
+            <p>
+            <span class="fst-italic">Tapi itu hanya berlaku untuk tegangan rendah</span>.
+            </p>
+
+            <p>
+            Kalibrasi secara mudahnya adalah sebuah proses untuk menyamakan nilai keluaran sensor 
+            dengan nilai yang ditunjukkan alat ukur yang sesuai standar, dalam hal ini adalah multimeter.
+            Sebagai contoh, apabila keluaran sensor terbaca 3,22 Volt dan keluaran multimeter adalah 
+            3,3 Volt, maka sensor harus diatur supaya keluaran yang terbaca menjadi 3,3 Volt seperti di multimeter.
+            </p>
+
+            <p>
+            Untuk pembacaan tegangan rendah, semisal 12 Volt, 
+            tidak masalah jika pembacaan <span class="fst-italic">voltage divider</span> tidak dikalibrasi. 
+            Namun untuk tegangan yang lebih tinggi dari pada itu, hukumnya wajib dilakukan kalibrasi. 
+            Apalagi jika sensor tegangan digunakan untuk <span class="fst-italic">feedback</span> kontrol <span class="fst-italic">close-loop</span>. 
+            Karena kearukatan sangat diperlukan di sistem <span class="fst-italic">close-loop</span>. 
+            Perbedaan nilai yang ditunjukkan multimeter dengan rangkian <span class="fst-italic">voltage divider</span> disebut sebagai error.
+            </p>
+
+            <div class="col" >
+                <div class="row">
+                <img src="./img/vdiv.png" style="width:500px; height:auto; object-fit:contain; text-align:center; margin-left:auto; margin-right:auto">
+                </div>
+            </div>
+            <p style="font-size:12px" align="center">
+            </br>
+            Grafik pembacaan multimeter dengan rangkaian <span class="fst-italic">voltage divider</span>. Sumber: Penulis
+            </p>
+            <br>
+
+
+            <p>
+            Grafik di atas adalah contoh bagaimana pengaruh error pembacaan <span class="fst-italic">voltage divider</span> dengan multimeter. 
+            Dengan rata-rata perbedaan antara <span class="fst-italic">voltage divider</span> dengan multimeter berdasar grafik di atas 
+            adalah -3,1% (angka dapat berbeda sesuai dengan sistem Anda), 
+            pembacaan tegangan kecil tidak masalah jika tidak dikalibrasi. 
+            Tapi jika melihat di ujung grafik, garis pembacaan <span class="fst-italic">voltage divider</span> dengan multimeter semakin memisah jauh. 
+            Ini yang buruk untuk pembacaan tegangan tinggi.
+            </p>
+
+            <br>
+            <p>
+            <span class="fst-italic">
+            Pada pembacaan 1 Volt, perbedaannya adalah 0,031 Volt.
+            <br>
+            Pada pembacaan 12 Volt, bedanya adalah 0,372 Volt.
+            <br>
+            Tapi untuk pembacaan 50 Volt, bedanya adalah 1,55 Volt.
+            <br>
+            Dan untuk pebacaan 100 Volt, bedanya adalah 3,1 Volt.
+            </span>
+            </p>
+
+            <br>
+            <br>
+            <h5><Strong><span class="fst-italic">Kalibrasi Sensor</span></Strong></h5>
+            <p>
+            Kalibrasi sensor dari <span class="fst-italic">voltage divider</span> seringkali dilakukan melalui program di dalam mikrokontroler sehingga tidak memerlukan pengaturan <span class="fst-italic">hardware</span>.
+            </p>
+
+                <div class="row">
+                  <iframe
+                    src="https://carbon.now.sh/embed?bg=rgba%28255%2C255%2C255%2C1%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=float%2520errorPercent%2520%253D%2520-0.031%2509%2509%2509%2509%2509%2509%2509%2509%2509%2509%252F%252F%2520Error%25203.1%2525%250A%250Avoid%2520setup%28%29%257B%250A%2520%2520.%2520.%2520.%250A%257D%250A%250Avoid%2520loop%28%29%257B%250A%2520%2520.%2520.%2520.%250A%2520%2520%2520%2520%250A%2520%2520float%2520outputVdiv%2520%253D%2520bacaSensorVoltageDivider%28%29%253B%250A%2520%2520float%2520outputTerkalibrasi%2520%253D%2520%281%2520%252B%2520errorPercent%29%2520*%2520outputVdiv%253B%250A%2520%2520%250A%2520%2520.%2520.%2520.%250A%257D"
+                    style="width: 800px; height: 573px; border:0; transform: scale(1); overflow:hidden;"
+                    sandbox="allow-scripts allow-same-origin">
+                  </iframe>
+                </div>
+          </div>
+
+          <div class="col-lg-4 pt-4 pt-lg-0 content">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Post Section -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  </footer>
+  <!-- End Footer -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/js/navbar.js"></script>
+  <script src="./assets/js/share-button.js"></script>
+  <script src="./assets/js/footer.js"></script>
+</body>
+
+</html>

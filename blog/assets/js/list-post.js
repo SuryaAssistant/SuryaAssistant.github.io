@@ -1,5 +1,13 @@
 post_data = [
     {
+        "title" : "Pentingnya Kalibrasi Pembacaan Rangkaian Voltage Divider",
+        "img" : "./img/bg1.png",
+        "date" : "1 Oktober 2022",
+        "link" : "./pentingnya-kalibrasi-pembacaan-rangkaian-voltage-divider.html",
+        "number" : 3,
+        "read_time" : 5,
+    },
+    {
         "title" : "Kalkulasi Lebar Jalur PCB",
         "img" : "./img/tracewidth.png",
         "date" : "14 September 2022",
