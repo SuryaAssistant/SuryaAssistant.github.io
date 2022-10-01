@@ -1,1 +1,1 @@
-var homepage = "https://fandiadinata.com";
+var homepage = "http://fandiadinata.com";
