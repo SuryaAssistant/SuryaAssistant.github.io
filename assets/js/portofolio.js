@@ -1,5 +1,13 @@
 portofolio_data = [
     {
+        "title" : "Kawung Network",
+        "description" : "Design and prototype of LoRa public mesh network",
+        "img" : "https://kawungnet.github.io/assets/img/node-2.png",
+        "website" : "https://kawungnet.github.io",
+        "github" : "https://github.com/kawungnet",
+        "file" : "",
+    },
+    {
         "title" : "arduinofuzzy",
         "description" : "Implementation of Fuzzy Logic Control Algorithm written in Arduino ",
         "img" : "https://raw.githubusercontent.com/SuryaAssistant/arduinofuzzy/main/img/fuzzy_output_graphic.png",
