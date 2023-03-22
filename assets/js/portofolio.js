@@ -63,7 +63,7 @@ for(let i = 1; i <= jLenght; i++)
 
     document.getElementById(idName).innerHTML = `
     <div class="card text-dark bg-white mb-3 border-0 shadow" >
-        <img src="${portofolio_data[i-1].img}" class="card-img-top" alt="...">
+        <img src="${portofolio_data[i-1].img}" class="card-img-top" alt="..." style="max-height:200px; object-fit:cover;">
         <div class="card-body">
             <h5 class="card-title">${portofolio_data[i-1].title}</h5>
             <p class="card-text">${portofolio_data[i-1].description}</p>
