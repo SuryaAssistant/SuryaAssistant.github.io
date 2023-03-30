@@ -2,7 +2,7 @@ portofolio_data = [
     {
         "title" : "Kawung Network",
         "description" : "Design and prototype of LoRa public mesh network",
-        "img" : "https://kawungnet.github.io/assets/img/node-2.png",
+        "img" : "./assets/img/portofolio/kawung.png",
         "website" : "https://kawungnet.github.io",
         "github" : "https://github.com/kawungnet",
         "file" : "",
