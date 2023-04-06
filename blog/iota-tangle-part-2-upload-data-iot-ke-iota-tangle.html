@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fandi Adinata - IOTA Tangle (Part 2): Upload Data IoT ke IOTA Tangle</title>
+  <meta content="Upload data internet of things (IoT) ke IOTA Tangle" name="description">
+  <meta content="IOTA, Tangle, Internet of Things, IoT, Blockchain, IoT-Blockchain" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+pre {
+  white-space: nowrap;
+  counter-reset: line;
+  background: #2f2f2f;
+  padding: 15px;
+  color: #ffffff;
+  font-size:14px;
+}
+
+code{
+  font-family: 'Courier New', monospace;
+  color: #000000;
+  font-size:16px;
+}
+</style>
+
+<body>
+
+  <header class="d-flex flex-column justify-content-center">
+
+  <!-- NAVBAR -->
+    <nav class="navbar fixed-top bg-white" id="navbar">
+    </nav>
+  <!-- End of NAVBAR-->
+
+  </header>
+
+
+    <!-- ======= POSTINGAN Section ======= -->
+    <section class="post">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content" id="isi-post">
+
+            <div class="section-title">
+              <!-- Judul Postingan -->
+              <h2>IOTA Tangle (Part 2) : <br>Upload Data IoT ke IOTA Tangle</h2>
+              <br>
+              <!-- Penulis dan Tanggal Terbit Postingan -->
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <p align="left" style="font-size:12px" class="fst-italic">Ditulis oleh : Fandi Adinata</p>
+                    <p align="left" style="font-size:12px" class="fst-italic">pada 6 April 2023 23:53 WIB</p>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="row" id="share-button">
+              
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Isi Postingan -->
+
+            <p>
+            <a href="https://www.iota.org">IOTA</a> merupakan sebuah <span class="fst-italic">distributed ledger technology</span> (DLT) yang dikembangkan oleh IOTA Foundation dengan berbasis di Jerman. 
+
+            IOTA memiliki tujuan yang sama dengan blockchain-blockchain pada umumnya, 
+            yaitu menciptakan media penyimpanan transaksi yang tidak bisa diubah (<span class="fst-italic">tamper-proof</span>) dengan prinsip desentralisasi, 
+            namun menggunakan konsep yang berbeda. 
+            </p>
+
+            <p>
+            Alih-alih menggunakan konsep <span class="fst-italic">block-chaining</span>, IOTA lebih memilih menggunakan konsep <span class="fst-italic">directed acyclyc graph</span> (DAG). 
+            DAG inilah yang kemudian dinamakan sebagai IOTA Tangle. 
+
+            Penggunaan DAG di IOTA menjadikan proses verifikasi tiap transaksi lebih cepat dibandingkan blockchain lain seperti Bitcoin maupun Ethereum yang memerlukan waktu hingga bermenit-menit untuk verifikasi satu <span class="fst-italic">block</span>.
+            </p>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="https://blockchain.ieee.org/images/files/newsletter/201901-popov-figure1.jpg" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            <span class="fst-italic">Directed Acyclic Graph</span>. Sumber: Serguei Popov, 2019
+            </p>
+            <br>
+
+            <p>
+            Selain proses verifikasi yang lebih cepat, proses transaksi di IOTA tidak memerlukan biaya jaringan (<span class="fst-italic">fee</span>) seperti pada Blockchain Bitcoin maupun <span class="fst-italic">gas fee</span> seperti pada Blockchain Ethereum. 
+            Dengan demikian, proses penyimpanan banyak data kecil non transaksi seperti data <span class="fst-italic">Internet of Things</span> (IoT) menjadi sangat memungkinkan.
+            </p>
+
+            <!-- Prequerities -->
+            <br>
+            <h5><Strong><span class="fst-italic">Prequerities</span></Strong></h5>
+            <div class="alert alert-warning" role="alert">
+            Anda dianggap sudah memahami perintah-perintah dasar Ubuntu dan Bahasa Pemrograman Python sebelum mengikuti tutorial ini.
+            <br><br>
+            Tutorial ini dilakukan dalam lingkup "devnet" supaya tidak mengganggu jaringan "mainnet" IOTA.
+            </div>
+            <p>1. Ubuntu</p>
+            <p>2. <a href="https://www.python.org/">Python 3.6+</a></p>
+            <p>3. <a href="https://pypi.org/project/pip/">pip</a></p>
+
+            <!-- Clone Repository -->
+            <br>
+            <h5><Strong><span class="fst-italic">Clone Repository</span></Strong></h5>
+
+            <p>Buka terminal dan ketik <span class="fst-italic">command</span> berikut untuk me-<span class="fst-italic">download</span> Rust.</p>
+            
+            <pre>
+              <code>
+              $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+              </code>
+            </pre>
+
+            <p>dan pastikan sudah me-<span class="fst-italic">install</span> libudev-dev.</p>
+            <pre>
+              <code>
+              $ apt install libudev-dev
+              </code>
+            </pre>
+
+            <p>
+            Buka terminal dan <span class="fst-italic">clone repository</span> dari IOTA.
+            </p>
+            <pre>
+              <code>
+              $ git clone -b production https://github.com/iotaledger/iota.rs
+              </code>
+            </pre>
+            <br>
+
+            <!-- Build & Install Library -->
+            <br>
+            <h5><Strong><span class="fst-italic">Build Library</span></Strong></h5>
+
+            <p>Setelah me-<span class="fst-italic">clone repository</span>, masuk ke dalam folder <code>iota.rs/bindings/python/native</code>.</p>
+            <pre>
+              <code>
+              $ cd iota.rs/bindings/python/native
+              </code>
+            </pre>
+            <br>
+
+            <p>Lakukan instalasi <span class="fst-italic">dependency</span> yang diperlukan dan tunggu hingga selesai.</p>
+            <pre>
+              <code>
+              $ pip install -r requirements-dev.txt
+              </code>
+            </pre>
+            <br>
+            <pre>
+              <code>
+              $ pip3 install maturin
+              <br>
+              $ maturin build --manylinux off
+              </code>
+            </pre>
+            <br>
+
+            <p>Setelah proses selesai, pindah ke folder <code>target/wheels</code> untuk proses instalasi <span class="fst-italic">library</span>. 
+            Nama file disesuaikan dengan nama file yg ada di folder <code>target/wheels</code>. Tiap komputer mungkin berbeda nama.</p>
+            <pre>
+              <code>
+              $ cd target/wheels 
+              </code>
+            </pre>
+            <br>
+            <pre>
+              <code>
+              $ pip3 install iota_client_python-0.2.0a3-cp36-abi3-linux_x86_64.whl 
+              </code>
+            </pre>
+            <br>
+
+            <!-- Test -->
+            <br>
+            <h5><Strong><span class="fst-italic">Test</span></Strong></h5>
+
+            <p>Buat file python baru dan isikan kode di bawah ke file tersebut.</p>
+            <pre>
+              <code>
+              import iota_client
+              <br><br>
+              # create a client with a node
+              <br>
+              client = iota_client.Client(nodes_name_password=[['https://api.lb-0.h.chrysalis-devnet.iota.cafe']])
+              <br><br>
+              print(client.get_info())
+              </code>
+            </pre>
+            <br>
+            <p>Jika berhasil, akan muncul keterangan seperti di bawah.</p>
+
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/tes01.jpeg" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            Test info node. Sumber: Penulis
+            </p>
+            <br>
+            
+
+            <p>Dalam tutorial ini, data IoT yang digunakan berupa data <span class="fst-italic">dummy</span>. 
+            Buat file python baru dan isikan kode di bawah ke file tersebut</p>
+            <pre>
+              <code>
+                import iota_client<br>
+                client = iota_client.Client()<br><br>
+                # encoding utf string into list of bytes<br>
+                data_iot = "[{'suhu':32, 'kelembaban':60}]".encode("utf8")<br><br>
+                message = client.message(index="data_hari_ini", data=data_iot)<br><br>
+                print(message)
+              </code>
+            </pre>
+            <br>
+            <p>Jika berhasil akan muncul balasan berupa "message_id". 
+            Ini adalah alamat data yang sudah diupload ke dalam IOTA Tangle. 
+            Dalam kasus ini, "message_id" yang didapat adalah "0876ab1f1cca0cdfd420f895afb431036e53c491d13aa1ae6e3624377203a588"
+            </p>
+
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/tes02.jpeg" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            Test upload data ke IOTA Tangle. Sumber: Penulis
+            </p>
+            <br>
+
+            <p>Data yang sudah diupload dapat dilihat melalui IOTA explorer dengan memasukkan "message_id" yang telah didapat ke dalam kolom pencarian.</p>
+            <p><a href="https://explorer.iota.org/devnet">https://explorer.iota.org/devnet</a></p>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/tes03.jpeg" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            Pencarian data di IOTA Explorer. Sumber: Penulis
+            </p>
+            <br>
+
+            <p>
+            Selain melalui IOTA Explorer, pencarian data juga dapat dilakukan melalui <span class="fst-italic">script</span> python. Buat file python baru dan isikan kode berikut ke dalamnya.
+            </p>
+
+            <pre>
+              <code>
+                import iota_client<br>
+                client = iota_client.Client()<br><br>
+
+                message = client.get_message_data("0876ab1f1cca0cdfd420f895afb431036e53c491d13aa1ae6e3624377203a588")<br>
+                message_payload = message["payload"]<br>
+                message_indexation = message_payload["indexation"][0]<br>
+                message_index = message_indexation["index"]<br>
+                message_data = message_indexation["data"]<br><br>
+
+                data_str=""<br>
+
+                index_str = bytes.fromhex(message_index).decode('utf-8')<br>
+                for i in message_data:<br>
+                &emsp; data_str += chr(i)<br><br>
+
+                print("Message index: ", index_str)<br>
+                print("Message data: ", data_str)<br>
+              </code>
+            </pre>
+            <br>
+
+            <p>Hasil yang didapat akan seperti berikut:</p>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/tes04.jpeg" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            Pencarian data IOTA Tangle melalui python script. Sumber: Penulis
+            </p>
+            <br>
+
+
+            <br>
+            <br>
+            <br>
+            <p>
+            <Strong>Beberapa referensi lain</Strong>
+            <br>
+            <br>
+            Dokumentasi binding iota.rs ke Python :
+            <br>
+            <span class="fst-italic"><a href="https://wiki.iota.org/iota.rs/getting_started/python/" target="_blank">https://wiki.iota.org/iota.rs/getting_started/python/</a></span>
+            <br>
+            <br>
+            Official IOTA Library dalam bahasa Rust :
+            <br>
+            <span class="fst-italic"><a href="https://github.com/iotaledger/iota.rs" target="_blank">https://github.com/iotaledger/iota.rs</a></span>
+            <br>
+            </p>
+
+          </div>
+
+          <div class="col-lg-4 pt-4 pt-lg-0 content">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  </footer>
+  <!-- End Footer -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/js/navbar.js"></script>
+  <script src="./assets/js/share-button.js"></script>
+  <script src="./assets/js/footer.js"></script>
+</body>
+
+</html>

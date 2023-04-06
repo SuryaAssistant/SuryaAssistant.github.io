@@ -1,9 +1,17 @@
 post_data = [
     {
-        "title" : "Pentingnya Kalibrasi Pembacaan Rangkaian Voltage Divider",
-        "img" : "./img/bg1.png",
-        "date" : "1 Oktober 2022",
-        "link" : "./pentingnya-kalibrasi-pembacaan-rangkaian-voltage-divider.html",
+        "title" : "IOTA Tangle (Part 2) : Upload Data IoT ke IOTA Tangle",
+        "img" : "./img/tes03.jpeg",
+        "date" : "7 April 2023",
+        "link" : "./iota-tangle-part-2-upload-data-iot-ke-iota-tangle.html",
+        "number" : 4,
+        "read_time" : 10,
+    },
+    {
+        "title" : "IOTA Tangle (Part 1) : 'Blockchain' untuk Internet of Things",
+        "img" : "./img/iota-logo.png",
+        "date" : "7 April 2023",
+        "link" : "./iota-tangle-part-1-blockchain-untuk-internet-of-things.html",
         "number" : 3,
         "read_time" : 5,
     },

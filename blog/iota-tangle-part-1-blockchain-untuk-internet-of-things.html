@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fandi Adinata - IOTA Tangle (Part 1): 'Blockchain' untuk Internet of Things</title>
+  <meta content="Blockchain untuk Internet of Things(IoT) menggunakan IOTA Tangle" name="description">
+  <meta content="IOTA, Tangle, Internet of Things, IoT, Blockchain, IoT-Blockchain" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+pre {
+  white-space: nowrap;
+  counter-reset: line;
+  background: #2f2f2f;
+  padding: 15px;
+  color: #ffffff;
+  font-size:14px;
+}
+
+code{
+  font-family: 'Courier New', monospace;
+  color: #000000;
+  font-size:16px;
+}
+</style>
+
+<body>
+
+  <header class="d-flex flex-column justify-content-center">
+
+  <!-- NAVBAR -->
+    <nav class="navbar fixed-top bg-white" id="navbar">
+    </nav>
+  <!-- End of NAVBAR-->
+
+  </header>
+
+
+    <!-- ======= POSTINGAN Section ======= -->
+    <section class="post">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content" id="isi-post">
+
+            <div class="section-title">
+              <!-- Judul Postingan -->
+              <h2>IOTA Tangle (Part 1): <br>'Blockchain' untuk Internet of Things</h2>
+              <br>
+              <!-- Penulis dan Tanggal Terbit Postingan -->
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <p align="left" style="font-size:12px" class="fst-italic">Ditulis oleh : Fandi Adinata</p>
+                    <p align="left" style="font-size:12px" class="fst-italic">pada 6 April 2023 23:15 WIB</p>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="row" id="share-button">
+              
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Isi Postingan -->
+
+
+            <!-- Pembukaan -->
+            <!--
+            <p>
+            <span class="fst-italic">Dulu, bitcoin dipuja-puja. Sekarang kemana?</span>
+            </p>
+            -->
+
+            <h5><Strong><span class="fst-italic">Blockchain?</span></Strong></h5>
+            <br>
+
+            <p>
+            Blockchain merupakan salah satu <span class="fst-italic">distributed ledger technology</span> (DLT) dengan menggunakan konsep <span class="fst-italic">cryptographic hash</span>. 
+            Blockchain diciptakan untuk tujuan keamanan data 
+            yang berfokus pada aspek keaslian data dimana data dijamin tetap sama dan tidak bisa diubah (<span class="fst-italic">tamper-proof</span>) 
+            . 
+            </p>
+
+            <p>
+            Blockchain terdiri dari blok-blok (satu blok dapat terdiri dari beberapa data) yang saling terhubung melalui <span class="fst-italic">hash</span>. 
+            Setiap blok yang disimpan di blockchain akan menghasilkan <span class="fst-italic">hash</span>. 
+            <span class="fst-italic">Hash</span> blok sebelumnya akan ditambahkan dan disimpan ke dalam blok terbaru. 
+            Apabila data dalam suatu blok diubah, maka <span class="fst-italic">hash</span> akan ikut berubah. 
+            Hal ini akan berimbas ke blok-blok berikutnya sehingga menghasilkan <span class="fst-italic">hash</span> yang berbeda dari <span class="fst-italic">hash</span> yang asli.
+            </p>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="https://www.researchgate.net/profile/Junaid-Qadir-2/publication/332139853/figure/fig2/AS:743083071270915@1554176218618/Mined-blocks-in-a-blockchain-Hash-in-each-block-now-starts-with-five-zeros.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <p style="font-size:12px" align="center">
+            <span class="fst-italic">Hash-Chain</span>. Sumber: <a href="https://www.researchgate.net/publication/332139853_Blockchain_And_The_Future_of_the_InternetA_Comprehensive_Review">Hasan et al</a>, 2019
+            </p>
+            <br>
+
+            <p>
+            Dalam <span class="fst-italic">distributed ledger</span> yang dipopulerkan oleh 'Satoshi Nakamoto' melalui Blockchain Bitcoin, 
+            salinan setiap data blokchain disimpan di berbagai tempat di seluruh dunia (konsep ini disebut sebagai desentralisasi). 
+            Hal ini menjadikan pengubahan seluruh data pada banyak tempat menjadi sulit. 
+            Apabila di dalam jaringan blockchain terdapat <span class="fst-italic">hash</span> suatu salinan yang berbeda dari yang <span class="fst-italic">hash-hash</span> di tempat lain, 
+            maka salinan ini dianggap tidak valid dan harus diubah kembali ke salinan aslinya.
+            </p>
+
+            <p>
+            Walaupun saat ini blockchain banyak yang hanya berfokus untuk penggunaan <span class="fst-italic">cryptocurrency</span> dan <span class="fst-italic">non fungible token</span> (NFT), seperti Bitcoin ataupun Ethereum, 
+            blockchain dapat dimanfaatkan untuk menyimpan berbagai macam data untuk tujuan menjaga keaslian data. 
+            Banyak data yang bisa disimpan ke dalam blockchain mulai dari sektor finansial, kearsipan, hingga tidak menutup kemungkinan untuk menyimpan data-data <span class="fst-italic">Internet of Things</span> (IoT).
+            </p>
+
+            <!-- Mengapa Harus IOTA? -->
+            <br>
+            <h5><Strong><span class="fst-italic">IOTA? IoT-A?</span></Strong></h5>
+            <br>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/iota-logo.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            <span class="fst-italic">IOTA Logo</span>. Sumber: <a href="https://commons.wikimedia.org/wiki/File:Iota_logo.png">Wikimedia</a>.
+            </p>
+            <br>
+
+
+            <p>
+            <a href="https://www.iota.org">IOTA</a> merupakan sebuah <span class="fst-italic">distributed ledger technology</span> (DLT) yang dikembangkan oleh IOTA Foundation dengan berbasis di Jerman. 
+
+            IOTA memiliki tujuan yang sama dengan blockchain-blockchain pada umumnya, 
+            yaitu menciptakan media penyimpanan transaksi yang tidak bisa diubah (<span class="fst-italic">tamper-proof</span>) dengan prinsip desentralisasi, 
+            namun menggunakan konsep yang berbeda. 
+            </p>
+
+            <p>
+            Alih-alih menggunakan konsep <span class="fst-italic">block-chaining</span> dari <span class="fst-italic">cryptographic hash</span>, IOTA lebih memilih menggunakan konsep <span class="fst-italic">directed acyclyc graph</span> (DAG). 
+            DAG inilah yang kemudian dinamakan sebagai IOTA Tangle. 
+
+            Penggunaan DAG di IOTA menjadikan proses verifikasi tiap transaksi lebih cepat dibandingkan blockchain lain seperti Bitcoin maupun Ethereum yang memerlukan waktu hingga bermenit-menit untuk verifikasi satu <span class="fst-italic">block</span>.
+            </p>
+
+            <p>
+            Selain proses verifikasi transaksi yang lebih cepat, proses transaksi di IOTA adalah <strong>gratis</strong>. 
+            Hal ini dikarenakan di dalam IOTA Tangle tidak terdapat <span class="fst-italic">miner</span> atau penambang untuk proses verifikasi data. 
+            Dalam blockchain berbasis <span class="fst-italic">cryptographic hash</span>, 
+            <span class="fst-italic">miner</span> adalah berupa node yang bertugas untuk mencari <span class="fst-italic">hash</span> sebagai proses verifikasi dari setiap blok data yang akan didaftarkan ke blockchain. 
+            Hal ini tentunya akan memunculkan yang namanya 'biaya jaringan' seperti <span class="fst-italic">gas fee</span> dalam Blockchain Ethereum. 
+            Di lain sisi, IOTA mengharuskan setiap node untuk melakukan verifikasi setidaknya dua data 
+            di dalam IOTA Tangle sebelum dapat melakukan <span class="fst-italic">publish</span> data ke Tangle. 
+            Konsep ini yang menjadikan IOTA bebas biaya jaringan.
+            </p>
+          
+            <br>
+            <h5><Strong><span class="fst-italic">IoT-Blockchain</span></Strong></h5>
+            <br>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/iot-blockchain-layer.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            <span class="fst-italic">IoT-Blockchain Architecture</span>. Sumber: <a href="https://techniumscience.com/index.php/technium/article/view/4692">Mohammad A. S.</a>, 2021.
+            </p>
+            <br>
+
+            <p>
+            IoT-Blockchain adalah istilah untuk teknologi yang menggabungkan 
+            IoT sebagai <span class="fst-italic">data collector</span> dan blockchain sebagai media penyimpanan data IoT. 
+            Konsep teknologi ini digunakan untuk menjamin keaslian data IoT sehingga proses 
+            pembuatan keputusan (<span class="fst-italic">decision making</span>) tidak terganggu oleh data palsu. 
+            Adanya blockchain dalam ekosistem IoT menjadikan data yang dihasilkan dan disimpan lebih terpercaya. 
+            </p>
+
+            <p>
+            Dalam dunia IoT, setiap node mengirimkan berbagai macam data dalam jumlah yang tidak sedikit. 
+            Skalabilitas blockchain untuk memproses banyak data yang masuk secara cepat menjadi salah satu tantangan 
+            dalam pengembangan blockchain untuk IoT. 
+            Terutama dengan semakin banyaknya perangkat IoT yang muncul setiap tahun dengan berbagai konsep '<span class="fst-italic">smart</span>'-nya. 
+            </p>
+
+            <p>
+            IOTA sebagai DLT dengan konsep DAG mencoba menjawab permasalahan skalabilitas blockchain. 
+            Semakin banyak data yang dimasukkan ke dalam IOTA Tangle, semakin cepat pula proses verifikasi data 
+            dikarenakan kewajiban untuk melakukan verifikasi dua data di dalam Tangle sebelum dapat melakukan <span class="fst-italic">publish</span> ke Tangle. 
+            Selain itu, setiap transaksi di dalam Tangle bersifat gratis sehingga mengurangi <span class="fst-italic">cost</span> yang harus dikeluarkan untuk biaya blockchain.
+            </p>
+
+            <br>
+            <br>
+            <p>
+            Proses bagaimana data IoT dipublish ke IOTA Tangle akan dijelaskan pada part berikutnya.
+            </p>
+            <br>
+            <p>
+            <Strong>Beberapa referensi lain</Strong>
+            <br>
+            <br>
+            IOTA Tangle (Part 2): Upload data IoT ke IOTA Tangle :
+            <br>
+            <span class="fst-italic"><a href="./iota-tangle-part-2-upload-data-iot-ke-iota-tangle.html">Part 2</a></span>
+            <br>
+            </p>
+
+          </div>
+
+          <div class="col-lg-4 pt-4 pt-lg-0 content">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  </footer>
+  <!-- End Footer -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/js/navbar.js"></script>
+  <script src="./assets/js/share-button.js"></script>
+  <script src="./assets/js/footer.js"></script>
+</body>
+
+</html>
