@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fandi Adinata - Raspberry Pi Sebagai Gateway IOTA via MQTT</title>
+  <meta content="Prototipe gateway untk IOTA Tangle menggunakan Raspberry Pi dengan protokol MQTT" name="description">
+  <meta content="IOTA, Tangle, Internet of Things, IoT, Blockchain, IoT-Blockchain, Raspberry Pi, MQTT" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+pre {
+  white-space: nowrap;
+  counter-reset: line;
+  background: #2f2f2f;
+  padding: 15px;
+  color: #ffffff;
+  font-size:14px;
+}
+
+code{
+  font-family: 'Courier New', monospace;
+  color: #000000;
+  font-size:16px;
+}
+</style>
+
+<body>
+
+  <header class="d-flex flex-column justify-content-center">
+
+  <!-- NAVBAR -->
+    <nav class="navbar fixed-top bg-white" id="navbar">
+    </nav>
+  <!-- End of NAVBAR-->
+
+  </header>
+
+
+    <!-- ======= POSTINGAN Section ======= -->
+    <section class="post">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content" id="isi-post">
+
+            <div class="alert alert-info" role="alert">
+            INFO : Gateway diujicobakan selama 24/7 hingga 31 Mei 2023. Selama tanggal tersebut, Anda dapat secara bebas menggunakan gateway dengan mengikuti tutorial di bawah.
+            </div>
+            <br>
+
+            <div class="section-title">
+              <!-- Judul Postingan -->
+              <h2>Raspberry Pi Sebagai Gateway IOTA via MQTT</h2>
+              <br>
+              <!-- Penulis dan Tanggal Terbit Postingan -->
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <p align="left" style="font-size:12px" class="fst-italic">Ditulis oleh : Fandi Adinata</p>
+                    <p align="left" style="font-size:12px" class="fst-italic">pada 14 Mei 2023 14:13 WIB</p>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="row" id="share-button">
+              
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Isi Postingan -->
+
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="https://raw.githubusercontent.com/SuryaAssistant/iota-raspberrypi-gateway/main/new_iota.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <br>
+            <p style="font-size:12px" align="center">
+            <span class="fst-italic">Konsep Gateway IOTA</span>.
+            </p>
+            <br>
+
+ 
+            <p>
+            <a href="https://www.iota.org">IOTA</a> memberikan terobosan  dalam dunia <span class="fst-italic">distributed ledger technology</span> (DLT) 
+            dengan memberikan layanan DLT yang bebas biaya transaksi yang tentunya sangat membantu perkembangan teknologi IoT-Blockchain. </p>
+
+            <p>
+            Sebagai gambaran, sebuah perangkat IoT yang digunakan dalam <span class="fst-italic">tracking</span> barang logistik secara <span class="fst-italic">real-time</span> setidaknya menghasilkan data lokasi, 
+            data kondisi di dalam kendaraan, serta data kendaraan itu sendiri. Kita anggap pengiriman paket data dilakukan setiap 5 menit. 
+            
+            Barang kemudian dikirim dari Jakarta menuju Surabaya yang memakan waktu 10 jam. Maka setidaknya perangkat IoT menghasilkan 120 data dalam sekali perjalanan.
+            </p>
+
+            <p>
+            Jika memakai blockchain yang berbayar dan kita anggap biaya untuk input data ke blockchain adalah Rp100 per input, maka setidaknya biaya yang harus dibayarkan adalah Rp12.000,-. 
+            Itu baru satu perangkat. Bagaimana kalau ada 100 perangkat? Bagaimana kalau 1000? Tentunya biaya operasional jadi membengkak. 
+            </p>
+
+            <p>
+            Di IOTA, tidak ada yang namanya biaya jaringan (hingga saat ini). Tapi tetap, mau memakai blockchain berbayar ataupun tidak, semuanya tetap berfungsi untuk menjaga keaslian data.
+            </p>
+
+            <p>
+            Tapi dalam implementasinya, pengiriman data dari perangkat IoT ke IOTA masih menggunakan protokol HTTP 
+            dimana protokol ini memakan banyak kuota data, terutama untuk data yang dikirimkan terus-menerus.
+            </p>
+
+            <p>
+            Di sini, penulis mengembangkan prototipe <span class="fst-italic">gateway</span> yang bertujuan supaya perangkat IoT dapat menggunakan MQTT untuk pengiriman data. 
+            Selain itu, pengguna tidak perlu melakukan proses instalasi yang panjang dan rumit sehingga mempercepat proses produksi. 
+            Proses lainnya akan diproses di <span class="fst-italic">gateway</span> hingga ke IOTA Tangle. Sehingga kerja perangkat IoT menjadi lebih ringan, menghasilkan data dan mengirimkan data melalui MQTT.
+            </p>
+
+
+            <!-- Prequerities -->
+            <br>
+            <h5><Strong><span class="fst-italic">Testing Single Data</span></Strong></h5>
+
+            <!---->
+            <div class="alert alert-warning" role="alert">
+            Pastikan Anda sudah menginstall MQTT Client (contoh : mosquitto) di komputer Anda.
+            </div>
+
+            <!-- Clone Repository -->
+            <br>
+
+            <p><b>1. Tentukan <span class="fst-italic">topic</span> MQTT Anda</b></p>
+            <p><span class="fst-italic">Topic</span> ini berfungsi sebagai alamat Anda untuk menerima id pesan dari IOTA. Di sini, penulis menggunakan alamat "<code>mytopic</code>".</p>
+
+            <p><b>2. <span class="fst-italic">Subscribe</span> ke <span class="fst-italic">topic</span> MQTT</b></p>
+            <p>Buka <span class="fst-italic">command prompt</span> dan ketik <span class="fst-italic">command</span> berikut untuk pindah ke folder instalasi mosquitto.</p>
+            
+            <pre>
+              <code>
+              $ cd C:\Program Files\mosquitto
+              </code>
+            </pre>
+
+            <p>Lakukan <span class="fst-italic">subscribe</span> ke alamat <span class="fst-italic">topic</span> MQTT yang telah dipilih sebelumnya. Alamat lengkap <span class="fst-italic">topic</span> menjadi "<code>surya_gateway/{topic_dipilih}</code>"
+
+            <pre>
+              <code>
+              $ mosquitto_sub -h test.mosquitto.org -t "surya_gateway/mytopic"
+              </code>
+            </pre>
+
+            <br>
+            <p style="font-size:12px" align="center">
+            Subscribe ke topic MQTT. Sumber: Penulis
+            </p>
+            <br>
+
+            <p><b>2. <span class="fst-italic">Publish</span> data ke MQTT</b></p>
+
+            <p>Gunakan data <span class="fst-italic">dummy</span> saja untuk melakukan testing. Sebagai contoh, penulis akan mengirimkan "data" ke <span class="fst-italic">topic</span> MQTT.</p>
+
+            <p>Buka <span class="fst-italic">command prompt</span> baru dan ketik seperti di bawah.</p>
+            <pre>
+              <code>
+              $ cd C:\Program Files\mosquitto
+              </code>
+            </pre>
+
+            <p>Di sini, data yang akan dikirimkan harus diapit dengan tanda petik satu ('). Format pengiriman menjadi <code>'{data_dikirim}'/{topic_dipilih}.</code></p>
+            <pre>
+              <code>
+              $ mosquitto_pub -h test.mosquitto.org -t "surya_gateway/submit" -m "'data'/mydata"
+              </code>
+            </pre>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/publish_mqtt_data.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            Publish data ke topic MQTT. Sumber: Penulis
+            </p>
+            <br>
+
+            <p><b>3. Menerima ID Pesan IOTA</b></p>
+            <p>Data yang dikirim akan diproses di <span class="fst-italic">gateway</span> dan kemudian dikirimkan ke IOTA. 
+            Setelah <span class="fst-italic">gateway</span> menerima balasan berupa ID pesan dari IOTA, <span class="fst-italic">gateway</span> akan meneruskan ID pesan ke <span class="fst-italic">topic</span> MQTT yang telah dipilih pada langkah nomor 1.
+            Lama proses dapat bervariasi tergantung banyaknya pesan yang di-<span class="fst-italic">handle</span>.</p>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/subscribe_mqtt_data.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            Menerima ID pesan IOTA. Sumber: Penulis
+            </p>
+            <br>
+
+            <p>Jika sudah menerima ID pesan, Anda dapat membuka <a href="https://explorer.iota.org/devnet/message/c14292555c04102eb3f6a6ee88b0ed01a20c2799b3da42d94246297c6f3c7792">https://explorer.iota.org/devnet</a> untuk melihat data yang telah Anda upload ke IOTA Tangle</p>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/iota_explorer_data.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            Data yang sudah diinput di IOTA. Sumber: Penulis
+            </p>
+            <br>
+
+            <br>
+            <h5><Strong><span class="fst-italic">Testing Multiple Data</span></Strong></h5>
+
+            <p>Seringkali, data yang dihasilkan perangkat IoT bisa lebih dari satu data. 
+            Bagian ini menjelaskan bagaimana mengirimkan banyak data ke IOTA Tangle melalui <span class="fst-italic">gateway</span>. 
+            <span class="fst-italic">Topic</span> yang digunakan pada contoh ini sama dengan di bagian sebelumnya.</p>
+
+            <p><b>1. <span class="fst-italic">Publish Mutiple Data</span> ke MQTT</b></p>
+            <p>Data dikirmkan dalam format JSON. Namun, semua tanda petik dua (") diganti menjadi petik satu ('). Sebagai contoh, data yang akan dikirimkan adalah nama pengirim dan nama penerima. 
+            Format JSON yang dikirim adalah sebagai berikut.</p>
+            
+            <code>
+            {<br>
+              &emsp;'pengirim':'fandi', <br>
+              &emsp;'penerima':'surya'<br>
+            }
+            </code>
+            <br><br>
+
+            <p>Di command prompt, ketik command berikut.</p>
+            <pre>
+              <code>
+              $ mosquitto_pub -h test.mosquitto.org -t "surya_gateway/submit" -m "{'pengirim':'fandi','penerima':'adinata'}/mydata"
+              </code>
+            </pre>
+            <br>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/publish_mqtt_json.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            Publish data JSON ke topic MQTT. Sumber: Penulis
+            </p>
+            <br>
+
+            <p><b>2. Menerima ID Pesan IOTA</b></p>
+
+            <p>ID pesan akan dikirimkan <span class="fst-italic">gateway</span> ke alamat <span class="fst-italic">topic</span> yang telah dipilih sebelumnya. ID pesan berada paling bawah.</p>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/subscribe_mqtt_json.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            ID Pesan dari IOTA. Sumber: Penulis
+            </p>
+            <br>
+
+            <p>Data dapat dilihat di <a href="https://explorer.iota.org/devnet/message/797b699b30b633dfbf77f8cec967db1db4f57eb9441350ad43ff8b1b40a7bd8e">explorer IOTA</a> seperti pada gambar di bawah</p>
+
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/iota_explorer_json.png" style="width:800px; object-fit:conntain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            Data di IOTA Explorer. Sumber: Penulis
+            </p>
+            <br>
+
+            <br>
+            <h5><Strong><span class="fst-italic">Custom Gateway</span></Strong></h5>
+            <p>Anda dapat melakukan instalasi dan kustomisasi <span class="fst-italic">gateway</span> ini di Raspberry Pi Anda. Untuk saat ini, program hanya mendukung Raspberry Pi OS 32-bit. Penjelasan lengkap dapat dilihat di link berikut:</p>
+            <p><a href="https://github.com/SuryaAssistant/iota-raspberrypi-gateway">https://github.com/SuryaAssistant/iota-raspberrypi-gateway</a></p>
+
+          </div>
+
+          <div class="col-lg-4 pt-4 pt-lg-0 content">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  </footer>
+  <!-- End Footer -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/js/navbar.js"></script>
+  <script src="./assets/js/share-button.js"></script>
+  <script src="./assets/js/footer.js"></script>
+</body>
+
+</html>

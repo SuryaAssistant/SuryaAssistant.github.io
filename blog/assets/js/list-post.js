@@ -1,11 +1,19 @@
 post_data = [
     {
+        "title" : "Raspberry Pi Sebagai Gateway IOTA via MQTT",
+        "img" : "https://raw.githubusercontent.com/SuryaAssistant/iota-raspberrypi-gateway/main/new_iota.png",
+        "date" : "14 Mei 2023",
+        "link" : "./raspberry-pi-sebagai-gateway-iota-via-mqtt.html",
+        "number" : 5,
+        "read_time" : 5,
+    },
+    {
         "title" : "IOTA Tangle (Part 2) : Upload Data IoT ke IOTA Tangle",
         "img" : "./img/tes03.jpeg",
         "date" : "7 April 2023",
         "link" : "./iota-tangle-part-2-upload-data-iot-ke-iota-tangle.html",
         "number" : 4,
-        "read_time" : 10,
+        "read_time" : 5,
     },
     {
         "title" : "IOTA Tangle (Part 1) : 'Blockchain' untuk Internet of Things",
