@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fandi Adinata - ESP32 - Upload Data Suhu dan Kelembaban DHT11 ke 'Blockchain' IOTA</title>
+  <meta content="ESP32 - Upload Data Suhu dan Kelembaban DHT11 ke Blockchain IOTA" name="description">
+  <meta content="IOTA, Tangle, Internet of Things, IoT, Blockchain, IoT-Blockchain, Raspberry Pi, MQTT, ESP32, DHT11" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+pre {
+  white-space: nowrap;
+  counter-reset: line;
+  background: #2f2f2f;
+  padding: 15px;
+  color: #ffffff;
+  font-size:14px;
+}
+
+code{
+  font-family: 'Courier New', monospace;
+  color: #000000;
+  font-size:16px;
+}
+</style>
+
+<body>
+
+  <header class="d-flex flex-column justify-content-center">
+
+  <!-- NAVBAR -->
+    <nav class="navbar fixed-top bg-white" id="navbar">
+    </nav>
+  <!-- End of NAVBAR-->
+
+  </header>
+
+
+    <!-- ======= POSTINGAN Section ======= -->
+    <section class="post">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content" id="isi-post">
+
+            <div class="alert alert-danger" role="alert">
+              <b>PERINGATAN!</b> 
+              <br>
+              IOTA Tangle adalah <i>distributed ledger</i> yang bersifat publik. 
+              Ini berarti data yang diunggah ke IOTA Tangle dapat dilihat oleh siapapun. 
+              Sangat disarankan untuk menambahkan layar keamanan tambahan seperti enkripsi data ataupun tanda tangan digital untuk menjaga keamanan data Anda.
+              <br>
+              <br>
+              Tutorial ini dibuat untuk tujuan edukasi mengenai konsep dan pengaplikasian IoT-Blockchain. Keamanan data menjadi tanggung jawab pribadi masing-masing.
+            </div>
+            <br>
+
+
+            <div class="section-title">
+              <!-- Judul Postingan -->
+              <h2>ESP32 - Upload Data Suhu dan Kelembaban DHT11 ke Blockchain IOTA </h2>
+              <br>
+              <!-- Penulis dan Tanggal Terbit Postingan -->
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <p align="left" style="font-size:12px" class="fst-italic">Ditulis oleh : Fandi Adinata</p>
+                    <p align="left" style="font-size:12px" class="fst-italic">pada 4 Juni 2023 00:37 WIB</p>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="row" id="share-button">
+              
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Isi Postingan -->
+
+            <p>
+              Tutorial di bawah menginstruksikan bagaimana cara untuk mengirimkan data suhu dan kelembaban sensor DHT11 ke 
+              blockchain IOTA (lebih dikenal sebagai IOTA Tangle) menggunakan mikrokontroler ESP32 melalui protokol MQTT.
+            </p>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/esp32iotabanner.png" style="width:800px; object-fit:contain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+
+            <!-- Pengenalan Singkat DHT11 -->
+            <br>
+            <h5><Strong><span class="fst-italic">Pengenalan Sensor Suhu dan Kelembaban DHT11</span></Strong></h5>
+            <p>
+              Secara singkat, sensor DHT11 merupakan sensor yang dapat membaca suhu dan kelembaban udara di sekitar sensor. 
+              Detail spesifikasi sensor DHT11 diperlihatkan melalui tabel di bawah.
+            </p>
+
+            <!-- DHT 11 Spec -->
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Spesifikasi</th>
+                  <th scope="col">DHT11</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Rentang Kelembaban</th>
+                  <td>20% hingga 80%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Akurasi Kelembaban</th>
+                  <td>5%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Rentang Pembacaan Suhu</th>
+                  <td>0C hingga 50C</td>
+                </tr>
+                <tr>
+                  <th scope="row">Akurasi Suhu</th>
+                  <td>+- 2C</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sampling Rate</th>
+                  <td>1 Hz</td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+
+            <p>
+              Pemasangan kabel antara sensor DHT11 dengan ESP32 seperti pada gambar di bawah.
+            </p>
+
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="https://www.circuits-diy.com/wp-content/uploads/2021/10/dht11-pinout.jpg" style="width:800px; object-fit:contain; text-align:center; height:300px">
+              </div>
+            </div>
+            <p style="font-size:12px" align="center">
+            <span class="fst-italic">Pinout DHT11. Sumber : circuits-diy</span>.
+            </p>
+            <br>
+
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">ESP32</th>
+                  <th scope="col">DHT11</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>3V3</td>
+                  <td>VCC</td>
+                </tr>
+                <tr>
+                  <td>D15</td>
+                  <td>DATA</td>
+                </tr>
+                <tr>
+                  <td>GND</td>
+                  <td>GND</td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+
+            <!-- Pengenalan Singkat IOTA -->
+            <br>
+            <h5><Strong><span class="fst-italic">Pengenalan IOTA Tangle</span></Strong></h5>
+            <p>
+              IOTA Tangle adalah jaringan <i>distributed ledger</i> milik IOTA. 
+              Jaringan ini tidak menggunakan konsep <i>linear block</i> seperti blockchain ethereum maupun blockchain lainnya, melainkan menggunakan konsep <i>directed acyclic graph</i>(DAG). 
+              Konsep ini memungkinkan proses upload data ke <i>distributed ledger</i> menjadi lebih cepat.
+            </p>
+
+            <p>
+              Dalam tutorial ini, pengunggahan data ke jaringan IOTA tidak dilakukan langsung ke jaringan IOTA Tangle, melainkan melalui gateway raspberry pi yang mendukung protokol MQTT. 
+              Jika Anda tertarik untuk membuat gateway sendiri, silakan baca tutorialnya <a href="./raspberry-pi-sebagai-gateway-iota-via-mqtt.html">di sini</a>.
+            </p>
+
+            <!-- Kode Program -->
+            <br>
+            <h5><Strong><span class="fst-italic">Kode Program</span></Strong></h5>
+
+            <div class="alert alert-info" role="alert">
+              Kode program project dapat dilihat <a href="https://github.com/SuryaAssistant/esp32-iota-mqtt/tree/main">di sini</a>.
+            </div>
+<!--
+            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2FSuryaAssistant%2Fesp32-iota-mqtt%2Fblob%2Fmain%2Fsrc%2Fmain%2Fmain.ino&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+-->
+            <!-- Penjelasan Kode Program -->
+            <br>
+            <h5><Strong><span class="fst-italic">Penjelasan Kode Program</span></Strong></h5>
+
+            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2FSuryaAssistant%2Fesp32-iota-mqtt%2Fblob%2Fmain%2Fsrc%2Fmain%2Fmain.ino%23L11-L22&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+
+            <p>
+              Bagian di atas digunakan untuk memanggil <i>library</i> yang diperlukan, antara lain <i>library</i> DHT11 dari Adafruit dan <i>library</i> PubSubClient.
+            </p>
+            
+            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2FSuryaAssistant%2Fesp32-iota-mqtt%2Fblob%2Fmain%2Fsrc%2Fmain%2Fmain.ino%23L24-L28&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+            
+            <p>
+              Ubah bagian di atas sesuai dengan konfigurasi WiFi Anda. SSID untuk nama WiFi dan PASS untuk password WiFi.
+            </p>
+
+            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2FSuryaAssistant%2Fesp32-iota-mqtt%2Fblob%2Fmain%2Fsrc%2Fmain%2Fmain.ino%23L30-L38&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+
+            <p>
+              Bagian di atas digunakan untuk konfigurasi pin DHT11.
+            </p>
+
+            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2FSuryaAssistant%2Fesp32-iota-mqtt%2Fblob%2Fmain%2Fsrc%2Fmain%2Fmain.ino%23L40-L50&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+
+            <p>
+              Jika Anda membuat gateway sendiri, Anda dapat mengubah broker MQTT sesuai dengan yang Anda gunakan. <code>topic</code> adalah topic MQTT untuk submit data dari ESP32 ke gateway. 
+              <code>subscribeTopic</code> digunakan untuk menerima <i>message ID</i> data yang sudah masuk ke dalam IOTA Tangle. <code>returnTopic</code> mengikuti akhiran dari <code>subscribeTopic</code>.
+            </p>
+
+            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2FSuryaAssistant%2Fesp32-iota-mqtt%2Fblob%2Fmain%2Fsrc%2Fmain%2Fmain.ino%23L60-L67&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+
+            <p>
+              Di dalam void setup, lakukan aktivasi pembacaan DHT11 dan WiFi.
+            </p>
+
+            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2FSuryaAssistant%2Fesp32-iota-mqtt%2Fblob%2Fmain%2Fsrc%2Fmain%2Fmain.ino%23L84-L87&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+
+            <p>
+              Setting server MQTT menggunakan alamat broker dan port seperti pada kode di atas. Dalam program ini, ESP32 akan menerima <i>message ID</i> dari gateway melalui <code>subscribeTopic</code>. 
+              Proses penerimaan message ID di atur di fungsi <code>callback()</code>.
+              Langkah selanjutnya, aktifkan MQTT dengan memanggil fungsi <code>connectMQTT</code>. 
+              Fungsi <code>connectMQTT()</code> dan <code>callback()</code> seperti pada di bawah. 
+            </p>
+
+            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2FSuryaAssistant%2Fesp32-iota-mqtt%2Fblob%2Fmain%2Fsrc%2Fmain%2Fmain.ino%23L155-L185&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+            <p>
+              Letakkan fungsi <code>connectMQTT()</code> dan <code>callback()</code> di paling bawah dari file program.
+            </p>
+
+            <script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2FSuryaAssistant%2Fesp32-iota-mqtt%2Fblob%2Fmain%2Fsrc%2Fmain%2Fmain.ino%23L105-L147&style=a11y-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+            <p>
+              Pembacaan sensor dilakukan setiap 5 menit. Setelah pembacaan sensor selesai, data akan dikirimkan dalam format JSON yang disimpan di variabel <code>mqtt_data</code>. 
+              JSON kemudian dipublish ke topic <code>surya_gateway/submit</code> melalui <code>client.publish()</code>. 
+            </p>
+
+
+            <!-- Hasil -->
+            <br>
+            <h5><Strong><span class="fst-italic">Hasil Pengujian pada ESP32</span></Strong></h5>
+
+            <p>
+              Berdasarkan pengujian, lama waktu yang diperlukan untuk mengirim data ke gateway hingga menerima <i>message ID</i> adalah sekitar 1,5 detik. 
+              Lama proses upload dapat bervariasi sesuai dengan kecepatan internet di tempat Anda.
+            </p>
+            <p>
+              Metode ini tidak dapat digunakan untuk pengiriman data dengan interval pengiriman kurang dari 1,5 detik. 
+              Namun, cara ini cocok digunakan untuk pengiriman data dengan interval di atas 5 menit. Seperti 10 menit sekali atau 30 menit sekali.
+            </p>
+
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/esp32iota.jpeg" style="width:800px; object-fit:contain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            <span class="fst-italic">Serial monitor ESP32</span>.
+            </p>
+
+            <br>
+            <h5><Strong><span class="fst-italic">Data di IOTA Tangle</span></Strong></h5>
+
+            <p>
+              Data yang telah diunggah ke IOTA Tangle dapat dilihat melalui <a href="https://explorer.iota.org/devnet/message/67573b4db0d0c189c4236d6412befbe1c40ff6a5ecf87a6c2551128c250f55de">IOTA Explorer</a>. 
+            </p>
+            <br>
+            <div class="col" style="text-align:center">
+              <div class="row">
+                <img src="./img/esp32iotaexplorer.png" style="width:800px; object-fit:contain; text-align:center; height:auto">
+              </div>
+            </div>
+            <br>
+            <p style="font-size:12px" align="center">
+            <span class="fst-italic">Data DHT11 di IOTA Explorer</span>.
+            </p>
+
+          </div>
+
+          <div class="col-lg-4 pt-4 pt-lg-0 content">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  </footer>
+  <!-- End Footer -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/js/navbar.js"></script>
+  <script src="./assets/js/share-button.js"></script>
+  <script src="./assets/js/footer.js"></script>
+</body>
+
+</html>

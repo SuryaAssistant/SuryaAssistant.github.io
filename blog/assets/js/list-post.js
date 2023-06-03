@@ -1,5 +1,13 @@
 post_data = [
     {
+        "title" : "ESP32 - Upload Data Suhu dan Kelembaban DHT11 ke Blockchain IOTA",
+        "img" : "./img/esp32iotabanner.png",
+        "date" : "4 Juni 2023",
+        "link" : "./esp32-upload-data-suhu-dan-kelembaban-dht11-ke-blockchain-iota.html",
+        "number" : 6,
+        "read_time" : 7,
+    },
+    {
         "title" : "Raspberry Pi Sebagai Gateway IOTA via MQTT",
         "img" : "https://raw.githubusercontent.com/SuryaAssistant/iota-raspberrypi-gateway/main/new_iota.png",
         "date" : "14 Mei 2023",
