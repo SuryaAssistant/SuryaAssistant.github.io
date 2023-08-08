@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fandi Adinata - Premium Fashion: Anti Pemalsuan Produk Menggunakan Blockchain</title>
+  <meta content="Mekanisme anti pemalsuan barang dengan memanfaatkan blockchain" name="description">
+  <meta content="IOTA, Tangle, Internet of Things, IoT, Blockchain, IoT-Blockchain, Raspberry Pi, MQTT, ESP32, DHT11" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+pre {
+  white-space: nowrap;
+  counter-reset: line;
+  background: #2f2f2f;
+  padding: 15px;
+  color: #ffffff;
+  font-size:14px;
+}
+
+code{
+  font-family: 'Courier New', monospace;
+  color: #000000;
+  font-size:16px;
+}
+</style>
+
+<body>
+
+  <header class="d-flex flex-column justify-content-center">
+
+  <!-- NAVBAR -->
+    <nav class="navbar fixed-top bg-white" id="navbar">
+    </nav>
+  <!-- End of NAVBAR-->
+
+  </header>
+
+
+    <!-- ======= POSTINGAN Section ======= -->
+    <section class="post">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content" id="isi-post">
+            <div class="section-title">
+              <!-- Judul Postingan -->
+              <h2>Premium Fashion:<br>Anti Pemalsuan Produk Menggunakan Blockchain </h2>
+              <br>
+              <!-- Penulis dan Tanggal Terbit Postingan -->
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <p style="font-size:12px; text-align: left;" class="fst-italic">Ditulis oleh : Fandi Adinata</p>
+                    <p style="font-size:12px; text-align: left;" class="fst-italic">pada 8 Agustus 2023 22:00 WIB</p>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="row" id="share-button">
+              
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Isi Postingan -->
+            <div class="col" style="text-align:center">
+                <div class="row">
+                    <img src="./img/premium-fashion-banner.png" style="width:800px; object-fit:contain; text-align:center; height:auto">
+                </div>
+            </div>
+            <br>
+            <p>
+                Beberapa waktu yang lalu, saya pernah membuat postingan di instagram yang berisi tentang bagaimana blockchain dapat membatu mengurangi kemungkinan peredaran barang palsu. 
+                Di postingan tersebut, teman saya berkomentar
+            </p>
+
+            <div class="alert alert-secondary" role="info">
+                <p class="fst-italic">
+                    Aku pernah kepikiran buat produk kaos branding dengan sistim kurang lebih seperti diatas. Bedanya tanpa pake blockchain, cuma pake seperti UUID generator dan dicetak di label kaos, jadi tiap kaos punya ID masing2. Kemudian buat ngecek keaslian kaos, disediakan website brand dengan inputan form kode UUID tadi dan pembeli bisa menginputi kodenya dari label kaos.
+                    <br><br>Tapi kemudian ada 1 celah keamanan yang muncul, bukan dari sistem online nya, tapi dari sistem distribusinya. Ada kemungkinan pihak distributor/reseller me-'recycle' UUID tadi untuk ditempel pada pake produk kaos yang KW dan tadaa, kaos KW pun menjadi ori karna ketika dicek keasliannya di website, UUID nya sesuai.
+                    <br><br>Aku gatau kalo sistem blockchain gimana, tapi dari penjelasan diatas, kayanya hampir sama.
+                </p>
+            </div>
+            <p>
+                Dari cerita di atas, walaupun id dari tiap kaos sudah dibuat sedemikian rupa supaya berbeda-beda, apa yang terjadi selama proses distribusi bukan hal yang mudah untuk dikendalikan. 
+                Ada kemungkinan kode kaos akan digunakan ulang secara ilegal sehingga memunculkan lebih dari satu barang dengan universal unique identifier (UUID) (mudahnya, disebut sebagai kode ID produk) yang sama di pasar. 
+                Hal ini pastinya akan berdampak kepada penghasilan produsen aslinya atau bahkan hingga kredibilitas produsen.
+            </p>
+
+            <br>
+            <h5><Strong><span class="fst-italic">Konsep Premium Fashion</span></Strong></h5>
+            <p>
+            <p>
+                Di sini, penulis mencoba memberikan solusi alternatif dengan memanfaatkan teknologi blockchain. 
+                Solusi ini di beri nama “Premium Fashion”. 
+                Konsep dari solusi ini adalah menjaga keaslian suatu produk secara bersama-sama antara produsen dan konsumen. 
+                Dengan blockchain digunakan sebagai media penyimpanan data produk dan data kepemilikan produk yang bersifat permanen. 
+            </p>
+
+            <p>
+                Dalam pembuatannya, penulis menggunakan kode ID produk yang harus memenuhi kedua faktor berikut:<br>
+                <br>
+                <b>1. Setiap kaos bersifat unik</b><br><br>
+                Produsen ingin hanya satu kode ID produk untuk satu produk. Kode ID produk dapat dibuat secara acak. Dalam contoh ini, sebuah produk memiliki kode ID <code>PF-kaos2f67eba54”</code>.<br><br>
+
+                <b>2. Kaos harus asli dari produsen dan dapat diverifikasi keasliannya</b><br><br>
+                Untuk mencapai tujuan ini, digunakan mekanisme <a href="https://en.wikipedia.org/wiki/Digital_signature">digital signature</a> atau tanda tangan digital. 
+                Digital signature ibarat tanda tangan produsen terhadap kaos yang dibuat namun dalam bentuk digital. 
+                Mekanisme digital signature dalam Premium Fashion menggunakan <a href="https://en.wikipedia.org/wiki/Elliptic_curve">elliptic curve</a> <a href="https://en.bitcoin.it/wiki/Secp256k1">secp256k1</a>. 
+                Penggunaan <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm">elliptic curve digital signature (ECDSA)</a> memungkinkan pembeli atau konsumen mengecek keaslian kode ID produk dengan melakukan verifikasi terhadap digital signature di kaos.
+            </p>
+
+            <!-- Metode -->
+            <br>
+            <h5><Strong><span class="fst-italic">Metode</span></Strong></h5>
+            <p>
+                Langkah-langkah dalam penggunaan konsep ini dijelaskan melalui proses dibawah.
+            </p>
+            <p>
+                <b>1. Produsen membuat public key dan private key untuk proses digital signature</b>
+            </p>
+            <p>
+                Public dan private key digunakan supaya konsumen dapat mengetahui dan memverifikasi bahwa kaos dengan kode ID tertentu memang berasal dari produsen aslinya. 
+                Di sini, penulis sebelumnya sudah membuat public dan private key dengan public key berupa
+            </p>
+            <pre>
+                <code>
+                    02fc8d163ee74b6e972bcc94481d0006f13c8e20896087fbfbda3ebc326ce2269b
+                </code>
+            </pre>
+            <p>
+                dan private key yang tentu saja private alias rahasia.
+            </p>
+            <p><b>2. Produsen mencetak kaos dan membuat kode ID produk</b></p>
+            <p>
+                Di contoh ini, penulis menggunakan <code>PF-kaos2f67eba54</code> dan menempelkan kode ID produk ini ke label kaos.
+            </p>
+            <p><b>3. Produsen melakukan proses tanda tangan digital</b></p>
+            <p>
+                Dalam proses ini, produsen membuat data produk berupa nama produk, kode ID produk dan deskripsi produk. 
+                Ketika komponen tersebut digabungkan dan kemudian didapatkan digital signature berupa
+            </p>
+            <pre>
+                <code>MEYCIQD84A5jRagDwknOBWVtAqlFuFecUN6SepuQldvK7L9x8gIhAIQizSvMbyXpugpzHYF5NjTP3YMY8nAt9BzlNXZC0+yf</code>
+            </pre>
+
+            <br>
+            <div class="col" style="text-align:center">
+                <div class="row">
+                    <img src="./img/add-product.png" style="width:800px; object-fit:contain; text-align:center; height:auto">
+                </div>
+            </div>
+            <p style="font-size:12px; text-align:center">
+                <span class="fst-italic">Proses upload data produk ke blockchain.</span>.
+            </p>
+            <br>
+
+            <p>
+                Data ini kemudian diupload ke blockchain untuk menjamin keaslian data produk dari serangan-serangan yang mungkin terjadi terhadap data produk. 
+            </p>
+
+            <p>Anda dapat melihat data nya di <a href="https://explorer.iota.org/devnet/message/43e7733e24e267acc2f1d99e263383817aefe64d6602ad7ef1648edab90f2e0a">https://explorer.iota.org/devnet/message/43e7733e24e267acc2f1d99e263383817aefe64d6602ad7ef1648edab90f2e0a</a></p>
+
+            <p><b>4. Produk didistribusikan</b></p>
+            <p>Selama proses pendistribusian, produsen tidak tahu apa yang terjadi terhadap produk.</p>
+      
+            <p><b>5. Pembelian kaos oleh konsumen</b></p>
+            <p>
+                Ketika konsumen akan membeli kaos, konsumen dapat melihat keaslian produk dengan menginputkan kode ID kaos ke website produsen. 
+                Di sana, konsumen akan tahu detail dari kaos dan dapat melakukan verifikasi digital signature jika diperlukan.
+            </p>
+
+            <br>
+            <div class="col" style="text-align:center">
+                <div class="row">
+                    <img src="./img/data-kaos-tanpa-regis.png" style="width:800px; object-fit:contain; text-align:center; height:auto">
+                </div>
+            </div>
+            <p style="font-size:12px; text-align:center">
+                <span class="fst-italic">Data kaos di blockchain.</span>.
+            </p>
+            <br>
+
+            <p><b>6. Registrasi kepemilikan kaos oleh konsumen</b></p>
+            <p>
+                Langkah ini adalah langkah terakhir dan sangat penting dalam konsep ini dimana bagian inilah yang menjamin bahwa kode ID produk tidak bisa di-copy oleh pihak lain. 
+                Setelah konsumen membeli kaos, konsumen akan mendaftarkan kepemilikannya ke dalam blockchain. 
+                Dalam contoh ini, konsumen hanya perlu menginputkan kode ID produk dan juga nama pemilik (tidak harus nama asli).
+            </p>
+
+            <br>
+            <div class="col" style="text-align:center">
+                <div class="row">
+                    <img src="./img/regis-ownership.png" style="width:800px; object-fit:contain; text-align:center; height:auto">
+                </div>
+            </div>
+            <p style="font-size:12px; text-align:center">
+                <span class="fst-italic">Registrasi kepemilikan kaos ke blockchain.</span>.
+            </p>
+            <br>
+            
+            <p>
+                Data kepemilikan ini kemudian di upload ke blockchain sehingga data kepemilikan dapat dilihat secara publik dan bersifat permanen.
+            </p>
+            <p>
+                Data dapat dilihat di <a href="https://explorer.iota.org/devnet/message/0ffe3e25fee2a2b7b031deacd1793a0c31fc4f0a26a15b0fbd34de90f198eb4a">https://explorer.iota.org/devnet/message/0ffe3e25fee2a2b7b031deacd1793a0c31fc4f0a26a15b0fbd34de90f198eb4a</a>.
+            </p>
+
+            <!-- Analisis -->
+            <br>
+            <h5><Strong><span class="fst-italic">Apa yang terjadi jika konsumen menemukan kode ID produk yang sama</span></Strong></h5>
+            <p>
+                Premium Fashion memanfaatkan kerja sama antara produsen dengan konsumen untuk menjaga tidak ada duplikasi kode ID produk yang terjadi.
+            </p>
+            <p>
+                Premium Fashion menganut sistem first to file dimana yang pertama mendaftarkan kepemilikan, akan dianggap sebagai pemilik sah dari barang tersebut. 
+                Sehingga Apabila konsumen menemukan bahwa sudah terdapat nama pemilik kode ID produk di website padahal konsumen belum membeli kaos, maka konsumen tidak perlu membeli kaos tersebut.
+            </p>
+
+            <br>
+            <div class="col" style="text-align:center">
+                <div class="row">
+                    <img src="./img/data-kaos-setelah-regis.png" style="width:800px; object-fit:contain; text-align:center; height:auto">
+                </div>
+            </div>
+            <p style="font-size:12px; text-align:center">
+                <span class="fst-italic">Data kaos di website jika sudah diregistrasi kepemilikan.</span>.
+            </p>
+            <br>
+
+
+            <!-- Penutup -->
+            <br>
+            <h5><Strong><span class="fst-italic">Penutup</span></Strong></h5>
+            <p>
+                Dengan konsep ini, maka konsumen dapat mengetahui bahwa produk yang dibeli adalah benar-benar produk dari produsen yang asli. 
+                Selain itu, mekanisme ini membatu produsen untuk menjaga peredaran barang produksi di pasar serta mengurangi kemungkinan adanya “recycle” kode ID produk.
+            </p>
+            <br>
+            <p><b>Note:</b></p>
+            <p>
+                Mungkin anda sudah menyadarinya jika konsep yang digunakan ini mirip dengan konsep NFT. 
+                Non fungible token (NFT) memungkinkan adanya verifikasi siapa pembuat NFT dan siapa yang mempunyai NFT asli. 
+                Hanya saya konsep Premium Fashion bukan untuk aset digital, melainkan untuk produk fisik.
+            </p>
+            <p>
+                Jika anda ingin mencoba konsep ini, Anda dapat mencoba menggunakannya dengan mengunjungi <a href="http://fandiadinata.com/premium-fashion">http://fandiadinata.com/premium-fashion</a>.
+            </p>
+
+        </div>
+      </div>
+    </section>
+    <!-- End About Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  </footer>
+  <!-- End Footer -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/js/navbar.js"></script>
+  <script src="./assets/js/share-button.js"></script>
+  <script src="./assets/js/footer.js"></script>
+</body>
+
+</html>

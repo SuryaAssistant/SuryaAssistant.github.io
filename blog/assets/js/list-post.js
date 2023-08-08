@@ -1,5 +1,13 @@
 post_data = [
     {
+        "title" : "Premium Fashion: Anti Pemalsuan Produk Menggunakan Blockchain",
+        "img" : "./img/premium-fashion-banner.png",
+        "date" : "8 Agustus 2023",
+        "link" : "./premium-fashion-anti-pemalsuan-produk-menggunakan-blockchain.html",
+        "number" : 7,
+        "read_time" : 6,
+    },
+    {
         "title" : "ESP32 - Upload Data Suhu dan Kelembaban DHT11 ke Blockchain IOTA",
         "img" : "./img/esp32iotabanner.png",
         "date" : "4 Juni 2023",
