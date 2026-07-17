@@ -1,5 +1,13 @@
 post_data = [
     {
+        "title" : "Membuat Wallet di Metamask",
+        "img" : "./img/metamask-banner.png",
+        "date" : "17 Juli 2026",
+        "link" : "./membuat-wallet-di-metamask.html",
+        "number" : 8,
+        "read_time" : 5,
+    },
+    {
         "title" : "Premium Fashion: Anti Pemalsuan Produk Menggunakan Blockchain",
         "img" : "./img/premium-fashion-banner.png",
         "date" : "8 Agustus 2023",
